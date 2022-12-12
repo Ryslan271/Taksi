@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Taksi
+namespace Taksi.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для PersonalPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PersonalPage : Page
     {
-        public MainWindow()
+        public PersonalPage()
         {
             InitializeComponent();
         }

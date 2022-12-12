@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Data.Entity;
 using System.Windows;
 
 namespace Taksi
@@ -13,5 +8,14 @@ namespace Taksi
     /// </summary>
     public partial class App : Application
     {
+        public static CompanyBaseEntities db { get; set; } = new CompanyBaseEntities();
+        public static Employee Employee { get; set; }
+        public static Client Client { get; set; }
+
+        public App()
+        {
+            db.Employee.Load();
+            db.Client.Load();
+        }
     }
 }

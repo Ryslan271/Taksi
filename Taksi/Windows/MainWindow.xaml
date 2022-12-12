@@ -1,0 +1,106 @@
+﻿<Window x:Class="Taksi.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Taksi.Windows"
+        mc:Ignorable="d"
+        Title="TFE"
+        Height="450"
+        Width="800"
+        Icon="/Resources/Image/logoMin.png">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="12*"/>
+            <RowDefinition Height="180*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="12*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border BorderBrush="Black"
+                BorderThickness="0 0 1 1"
+                Grid.Column="0">
+            
+            <TextBlock x:Name="MainName"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       FontSize="15"
+                       Margin="10 0 0 0"
+                       Text="Home"
+                       FontFamily="Bahnschrift"/>
+        </Border>
+
+        <Border Grid.Column="0"
+                Grid.Row="1"
+                BorderThickness="0 0 1 0"
+                BorderBrush="Black"
+                Padding="0 10 3 0">
+
+            <StackPanel>
+                <RadioButton Style="{StaticResource MenuButton}"
+                         x:Name="ParsonCabinet"
+                         Click="ParsonCabinet_Click">
+                    <RadioButton.Content>
+                        <Image Margin="5 0 0 0"
+                           Source="/Resources/Image/homeIcon.png"/>
+                    </RadioButton.Content>
+                </RadioButton>
+
+                <RadioButton Style="{StaticResource MenuButton}">
+                    <RadioButton.Content>
+                        <Image
+                        Source="Resources/Image/icon_product.png"
+                        Margin="5 0 0 0"/>
+                    </RadioButton.Content>
+                </RadioButton>
+
+                <RadioButton x:Name="OrdersListButton"
+                         Style="{StaticResource MenuButton}">
+                    <RadioButton.Content>
+                        <Image
+                        Source="Resources/Image/icon_postavchik.png"
+                        Margin="5 0 0 0"/>
+                    </RadioButton.Content>
+                </RadioButton>
+
+                <RadioButton x:Name="MakeOrderButton"
+                         Style="{StaticResource MenuButton}"
+                         Visibility="{Binding user.VisibilitiUserToMakeOrAddOrdernd4}">
+                    <RadioButton.Content>
+                        <Image
+                        Source="Resources/Image/icon_orders.png"
+                        Margin="5 0 0 0"/>
+                    </RadioButton.Content>
+                </RadioButton>
+
+                <RadioButton Style="{StaticResource MenuButton}"
+                         Visibility="{Binding user.VisibilitiButton}">
+                    <RadioButton.Content>
+                        <Image
+                        Source="Resources/Image/icon_goinyourhouse.png"
+                        Margin="5 0 0 0"/>
+                    </RadioButton.Content>
+                </RadioButton>
+
+                <RadioButton Style="{StaticResource MenuButton}"
+                         Click="ButtonClickExit">
+                    <RadioButton.Content>
+                        <Image
+                        Source="Resources/Image/icon_exit.png"
+                        Margin="5 0 0 0"/>
+                    </RadioButton.Content>
+                </RadioButton>
+            </StackPanel>
+        </Border>
+
+        <Frame x:Name="MainFrame"
+               ScrollViewer.VerticalScrollBarVisibility="Visible"
+               NavigationUIVisibility="Hidden"
+               Grid.Column="1"
+               Margin="5 8 5 5"
+               Grid.RowSpan="2"/>
+    </Grid>
+</Window>

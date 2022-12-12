@@ -1,0 +1,67 @@
+﻿<Page x:Class="Taksi.Pages.PersonalPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Taksi.Pages"
+      mc:Ignorable="d" 
+      Title="PersonalPage">
+
+    <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto">
+        <StackPanel Style="{StaticResource ResourceKey=StyleStackPanel}"
+                    VerticalAlignment="Stretch"
+                    Margin="0 40 0 0">
+            
+            <Border BorderBrush="Black"
+                    BorderThickness="0 0 0 2"
+                    Margin="0 0 0 20"
+                    Padding="0 0 0 10">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Resources/Image/logo.png"
+                           MinWidth="200"
+                           MaxWidth="350"/>
+
+                    <TextBlock Margin="15 0 0 0"
+                               TextWrapping="Wrap"
+                               MaxWidth="350"
+                               TextAlignment="Left"
+                               Text="   Наша компания волнуется за наших клиентов и подбирает для них только самых профессиональных водителей, но будте внимательны, водители тоже могут ставить вам звезды, которые на прямую влияют на вашего будучего водителя!"/>
+                </StackPanel>
+            </Border>
+
+            <StackPanel Orientation="Horizontal"
+                        Style="{StaticResource ResourceKey=StyleStackPanel}"
+                        HorizontalAlignment="Center"
+                        Margin="0 0 0 100">
+                <StackPanel>
+                    <TextBlock Text="Имя"/>
+                    <TextBox x:Name="NameBox"
+                             MinWidth="200"/>
+
+                    <TextBlock Text="Фамилия"/>
+                    <TextBox x:Name="SurnameBox"/>
+
+                    <TextBlock Text="Отчество"/>
+                    <TextBox x:Name="PatronymicBox"/>
+
+                    <TextBlock Text="Телефон"/>
+                    <TextBox x:Name="PhoneBox"/>
+                </StackPanel>
+
+                <StackPanel Margin="130 0 0 0">
+                    <TextBlock Text="Адрес электронной почты"/>
+                    <TextBox x:Name="EmailBox"/>
+
+                    <TextBlock Text="Логин"/>
+                    <TextBox x:Name="LoginBox"/>
+
+                    <TextBlock Text="Пароль"/>
+                    <TextBox x:Name="PasswordBox"/>
+
+                    <TextBlock Text="Ваши звездочки"/>
+                    <TextBox x:Name="GradeBox"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</Page>
