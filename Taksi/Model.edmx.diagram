@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f11f9bbd37b84b6cbc6c70d100ca2cb4" Name="Diagram1">
+        <EntityTypeShape EntityType="CompanyBaseModel.BrandCars" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompanyBaseModel.Car" Width="1.5" PointX="5.25" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompanyBaseModel.Client" Width="1.5" PointX="5.25" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompanyBaseModel.ColorCar" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompanyBaseModel.DrivingLicenseCategory" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompanyBaseModel.Employee" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompanyBaseModel.GradeClient" Width="1.5" PointX="3" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompanyBaseModel.GradeUser" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompanyBaseModel.Order" Width="1.5" PointX="7.5" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompanyBaseModel.OrderStatus" Width="1.5" PointX="5.25" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompanyBaseModel.Role" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompanyBaseModel.ViewCar" Width="1.5" PointX="3" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompanyBaseModel.ViewOrder" Width="1.5" PointX="5.25" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompanyBaseModel.WeightLimit" Width="1.5" PointX="3" PointY="14.75" IsExpanded="true" />
+        <AssociationConnector Association="CompanyBaseModel.FK_Car_BrandCars" ManuallyRouted="false" />
+        <AssociationConnector Association="CompanyBaseModel.FK_Car_ColorCar" ManuallyRouted="false" />
+        <AssociationConnector Association="CompanyBaseModel.FK_Car_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="CompanyBaseModel.FK_Car_ViewCar" ManuallyRouted="false" />
+        <AssociationConnector Association="CompanyBaseModel.FK_Car_WeightLimit" ManuallyRouted="false" />
+        <AssociationConnector Association="CompanyBaseModel.FK_Order_Car" ManuallyRouted="false" />
+        <AssociationConnector Association="CompanyBaseModel.FK_Client_GradeClient" ManuallyRouted="false" />
+        <AssociationConnector Association="CompanyBaseModel.FK_Order_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="CompanyBaseModel.FK_Employee_DrivingLicenseCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="CompanyBaseModel.FK_Employee_GradeUser" ManuallyRouted="false" />
+        <AssociationConnector Association="CompanyBaseModel.FK_Employee_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="CompanyBaseModel.FK_Order_OrderStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="CompanyBaseModel.FK_Order_ViewOrder" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
