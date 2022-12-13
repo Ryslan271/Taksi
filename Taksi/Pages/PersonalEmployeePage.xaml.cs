@@ -16,13 +16,20 @@ using System.Windows.Shapes;
 namespace Taksi.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для PersonalPage.xaml
+    /// Логика взаимодействия для PersonalEmployeePage.xaml
     /// </summary>
-    public partial class PersonalPage : Page
+    public partial class PersonalEmployeePage : Page
     {
-        public PersonalPage()
+        public PersonalEmployeePage()
         {
+            EmployeePersonal = App.Employee;
+
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

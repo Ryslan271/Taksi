@@ -27,6 +27,7 @@ namespace Taksi.Windows
 
             App.Employee = employee;
             new MainWindow().Show();
+            Instance.MainFrame.Navigate(new Pages.PersonalEmployeePage());
         }
 
         public static void EnterClient(Client client)
@@ -39,6 +40,7 @@ namespace Taksi.Windows
 
             App.Client = client;
             new MainWindow().Show();
+            Instance.MainFrame.Navigate(new Pages.PersonalEmployeePage());
         }
         #endregion
 
@@ -52,7 +54,8 @@ namespace Taksi.Windows
 
         private void ParsonCabinet_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new Pages.PersonalPage());
+            if (App.Client == null)
+                MainFrame.Navigate(new Pages.PersonalEmployeePage());
         }
         #endregion
     }

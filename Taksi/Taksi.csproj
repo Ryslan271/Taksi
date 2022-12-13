@@ -76,6 +76,7 @@
     <Compile Include="ColorCar.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="DependencyProperties\PersonalEmployeePage.cs" />
     <Compile Include="DrivingLicenseCategory.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -99,8 +100,8 @@
     <Compile Include="OrderStatus.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Pages\PersonalPage.xaml.cs">
-      <DependentUpon>PersonalPage.xaml</DependentUpon>
+    <Compile Include="Pages\PersonalEmployeePage.xaml.cs">
+      <DependentUpon>PersonalEmployeePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Role.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -120,7 +121,7 @@
     <Compile Include="Windows\RegistrationWindow.xaml.cs">
       <DependentUpon>RegistrationWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="Pages\PersonalPage.xaml">
+    <Page Include="Pages\PersonalEmployeePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
