@@ -1,0 +1,106 @@
+﻿<Page x:Class="Taksi.Pages.StoryOrdersPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Taksi.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="StoryOrdersPage"
+      DataContext="{Binding RelativeSource={RelativeSource Self}}">
+
+    <StackPanel>
+        <ListBox ItemsSource="{Binding Orders}"
+                 d:ItemsSource="{d:SampleData ItemCount=2}"
+                 ItemContainerStyle="{StaticResource ResourceKey=ListBoxOrders}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border Margin="0 20 0 0"
+                            BorderBrush="Black"
+                            BorderThickness="2"
+                            Padding="8">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding ID}"/>
+                                <TextBlock Text="{Binding OrderStatus.Title}"
+                                           Margin="10 0 0 0"/>
+                            </StackPanel>
+
+                            <Border Grid.Column="0"
+                                    Grid.Row="1"
+                                    Margin="0 5 0 0"
+                                    BorderBrush="Black"
+                                    BorderThickness="1"
+                                    Padding="5">
+
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Client.FullName}"/>
+                                    <TextBlock Text="{Binding Client.PhoneNumber}"/>
+                                    <TextBlock Text="{Binding Client.Email}"/>
+                                    <TextBlock Text="{Binding Client.GradeClient.Title}"/>
+                                </StackPanel>
+                            </Border>
+
+                            <TextBlock Text="{Binding TimeForExecution}"
+                                       Grid.Column="1"/>
+
+                            <Border Grid.Column="1"
+                                    Grid.Row="1"
+                                    Margin="0 5 0 0"
+                                    BorderBrush="Black"
+                                    BorderThickness="1"
+                                    Padding="5">
+
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Driver.FullName}"/>
+                                    <TextBlock Text="{Binding Driver.PhoneNumber}"/>
+                                    <TextBlock Text="{Binding Driver.Email}"/>
+                                    <TextBlock Text="{Binding Driver.GradeUser.Title}"/>
+                                </StackPanel>
+                            </Border>
+
+                            <TextBlock Grid.Row="2"
+                                       Margin="0 10 0 0"
+                                       Text="{Binding Address}"/>
+
+                            <TextBlock Grid.Column="3"
+                                       Text="{Binding FinalDestination}"/>
+
+                            <Border Grid.Column="2"
+                                    Grid.Row="1"
+                                    Margin="0 5 0 0"
+                                    BorderBrush="Black"
+                                    BorderThickness="1"
+                                    Padding="5">
+
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Car.BrandCars.Title}"/>
+                                    <TextBlock Text="{Binding Car.ColorCar.Title}"/>
+                                    <TextBlock Text="{Binding Car.NumberСar}"/>
+                                    <TextBlock Text="{Binding Car.RegionNumber}"/>
+                                    <TextBlock Text="{Binding Car.ViewCar.Title}"/>
+                                    <TextBlock Text="{Binding Car.WeightLimit.Weidht}"/>
+                                </StackPanel>
+                            </Border>
+
+                            <TextBlock Grid.Column="2"
+                                       Grid.Row="2"
+                                       Text="{Binding Cost}"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </StackPanel>
+</Page>

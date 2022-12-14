@@ -1,4 +1,4 @@
-﻿<Page x:Class="Taksi.Pages.PersonalEmployeePage"
+﻿<Page x:Class="Taksi.Pages.PersonalClientPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,8 +6,8 @@
       xmlns:local="clr-namespace:Taksi.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      DataContext="{Binding RelativeSource={RelativeSource Self}}"
-      Title="PersonalEmployeePage">
+      Title="PersonalClientPage"
+      DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
     <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto">
         <StackPanel Style="{StaticResource ResourceKey=StyleStackPanel}"
@@ -18,7 +18,7 @@
                     BorderThickness="0 0 0 2"
                     Margin="0 0 0 20"
                     Padding="0 0 0 10">
-                
+
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/Resources/Image/logo.png"
                            MinWidth="200"
@@ -36,43 +36,43 @@
                         Style="{StaticResource ResourceKey=StyleStackPanel}"
                         HorizontalAlignment="Center"
                         Margin="0 0 0 20">
-                
+
                 <StackPanel>
                     <TextBlock Text="Имя"/>
                     <TextBox x:Name="NameBox"
                              MinWidth="200"
-                             Text="{Binding EmployeePersonal.Name}"/>
+                             Text="{Binding ClientPersonal.Name}"/>
 
                     <TextBlock Text="Фамилия"/>
                     <TextBox x:Name="SurnameBox"
-                             Text="{Binding EmployeePersonal.Surname}"/>
+                             Text="{Binding ClientPersonal.Surname}"/>
 
                     <TextBlock Text="Отчество"/>
                     <TextBox x:Name="PatronymicBox"
-                             Text="{Binding EmployeePersonal.Patronymic}"/>
+                             Text="{Binding ClientPersonal.Patronymic}"/>
 
                     <TextBlock Text="Телефон"/>
                     <TextBox x:Name="PhoneBox"
-                             Text="{Binding EmployeePersonal.PhoneNumber}"/>
+                             Text="{Binding ClientPersonal.PhoneNumber}"/>
                 </StackPanel>
 
                 <StackPanel Margin="130 0 0 0">
                     <TextBlock Text="Адрес электронной почты"/>
                     <TextBox x:Name="EmailBox"
-                             Text="{Binding EmployeePersonal.Email}"/>
+                             Text="{Binding ClientPersonal.Email}"/>
 
                     <TextBlock Text="Логин"/>
                     <TextBox x:Name="LoginBox"
-                             Text="{Binding EmployeePersonal.Login}"/>
+                             Text="{Binding ClientPersonal.Login}"/>
 
                     <TextBlock Text="Пароль"/>
                     <TextBox x:Name="PasswordBox"
-                             Text="{Binding EmployeePersonal.Password}"/>
+                             Text="{Binding ClientPersonal.Password}"/>
 
                     <TextBlock Text="Ваши звездочки"/>
                     <TextBox x:Name="GradeBox"
                              IsReadOnly="True"
-                             Text="{Binding EmployeePersonal.GradeUser.Title}"/>
+                             Text="{Binding ClientPersonal.GradeClient.Title}"/>
                 </StackPanel>
             </StackPanel>
 
@@ -80,7 +80,7 @@
                     Margin="0 0 0 0"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    Padding="15 4" Click="EditingEmployee"/>
+                    Padding="15 4" Click="Button_Click"/>
         </StackPanel>
     </ScrollViewer>
 </Page>

@@ -11,6 +11,6 @@ namespace Taksi.Pages
         }
 
         public static readonly DependencyProperty EmployeeProperty =
-            DependencyProperty.Register("EmployeePersonal", typeof(Employee), typeof(PersonalPage), new PropertyMetadata(0));
+            DependencyProperty.Register("EmployeePersonal", typeof(Employee), typeof(PersonalEmployeePage));
     }
 }

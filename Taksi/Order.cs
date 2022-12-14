@@ -23,6 +23,7 @@ namespace Taksi
         public int OrderStatusID { get; set; }
         public System.DateTime TimeForExecution { get; set; }
         public string FinalDestination { get; set; }
+        public decimal Cost { get; set; }
     
         public virtual Car Car { get; set; }
         public virtual Client Client { get; set; }

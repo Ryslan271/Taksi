@@ -76,13 +76,18 @@
     <Compile Include="ColorCar.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="DependencyProperties\PersonalClientPage.cs" />
     <Compile Include="DependencyProperties\PersonalEmployeePage.cs" />
+    <Compile Include="DependencyProperties\StoryOrdersPage.cs" />
     <Compile Include="DrivingLicenseCategory.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Employee.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Extensions\Employee.Extension.cs" />
+    <Compile Include="Extensions\Order.Extension.cs" />
+    <Compile Include="Extensions\Client.Extension.cs" />
     <Compile Include="GradeClient.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -100,8 +105,14 @@
     <Compile Include="OrderStatus.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Pages\PersonalClientPage.xaml.cs">
+      <DependentUpon>PersonalClientPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\PersonalEmployeePage.xaml.cs">
       <DependentUpon>PersonalEmployeePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\StoryOrdersPage.xaml.cs">
+      <DependentUpon>StoryOrdersPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Role.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -121,7 +132,15 @@
     <Compile Include="Windows\RegistrationWindow.xaml.cs">
       <DependentUpon>RegistrationWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Pages\PersonalClientPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\PersonalEmployeePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\StoryOrdersPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -130,6 +149,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\Style\MenuButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Style\StoryOrdersStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -210,6 +233,7 @@
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
     <Resource Include="Resources\Image\homeIcon.png" />
+    <Resource Include="Resources\Image\icon_orders.png" />
     <Resource Include="Resources\Image\logo.png" />
     <Resource Include="Resources\Image\logoMin.png" />
   </ItemGroup>

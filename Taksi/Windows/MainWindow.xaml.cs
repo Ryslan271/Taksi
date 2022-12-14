@@ -13,36 +13,14 @@ namespace Taksi.Windows
         {
             InitializeComponent();
             Instance = this;
+
+            ParsonCabinet.IsChecked = true;
+
+            if (App.Client == null)
+                MainFrame.Navigate(new Pages.PersonalEmployeePage());
+            else
+                MainFrame.Navigate(new Pages.PersonalClientPage());
         }
-
-        #region Методы при входе в систему
-
-        public static void EnterEmployee(Employee employee)
-        {
-            if (employee == null)
-            {
-                MessageBox.Show("Такой пользователь не зарегистрирован");
-                return;
-            }
-
-            App.Employee = employee;
-            new MainWindow().Show();
-            Instance.MainFrame.Navigate(new Pages.PersonalEmployeePage());
-        }
-
-        public static void EnterClient(Client client)
-        {
-            if (client == null)
-            {
-                MessageBox.Show("Такой пользователь не зарегистрирован");
-                return;
-            }
-
-            App.Client = client;
-            new MainWindow().Show();
-            Instance.MainFrame.Navigate(new Pages.PersonalEmployeePage());
-        }
-        #endregion
 
         #region Обработчики
 
@@ -56,7 +34,14 @@ namespace Taksi.Windows
         {
             if (App.Client == null)
                 MainFrame.Navigate(new Pages.PersonalEmployeePage());
+            else
+                MainFrame.Navigate(new Pages.PersonalClientPage());
+        }
+        private void Orders_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new Pages.PersonalEmployeePage());
         }
         #endregion
+
     }
 }

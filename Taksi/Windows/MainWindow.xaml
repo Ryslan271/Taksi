@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:Taksi.Windows"
         mc:Ignorable="d"
         Title="TFE"
-        Height="450"
-        Width="800"
+        Height="550"
+        Width="900"
         Icon="/Resources/Image/logoMin.png">
     
     <Grid>
@@ -49,10 +49,11 @@
                     </RadioButton.Content>
                 </RadioButton>
 
-                <RadioButton Style="{StaticResource MenuButton}">
+                <RadioButton Style="{StaticResource MenuButton}"
+                             Click="Orders_Click">
                     <RadioButton.Content>
                         <Image
-                        Source="Resources/Image/icon_product.png"
+                        Source="/Resources/Image/icon_orders.png"
                         Margin="5 0 0 0"/>
                     </RadioButton.Content>
                 </RadioButton>

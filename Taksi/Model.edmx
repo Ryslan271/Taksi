@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище CompanyBaseModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище CompanyBaseModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BrandCars">
           <Key>
             <PropertyRef Name="ID" />
@@ -17,6 +17,8 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NumberСar" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="RegionNumber" Type="int" Nullable="false" />
           <Property Name="ColorCarID" Type="int" Nullable="false" />
           <Property Name="ViewCarID" Type="int" Nullable="false" />
           <Property Name="BrandCarsID" Type="int" Nullable="false" />
@@ -95,6 +97,7 @@
           <Property Name="OrderStatusID" Type="int" Nullable="false" />
           <Property Name="TimeForExecution" Type="datetime" Nullable="false" />
           <Property Name="FinalDestination" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Cost" Type="money" Nullable="false" />
         </EntityType>
         <EntityType Name="OrderStatus">
           <Key>
@@ -355,8 +358,7 @@
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CompanyBaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -384,6 +386,8 @@
           <NavigationProperty Name="ViewCar" Relationship="Self.FK_Car_ViewCar" FromRole="Car" ToRole="ViewCar" />
           <NavigationProperty Name="WeightLimit" Relationship="Self.FK_Car_WeightLimit" FromRole="Car" ToRole="WeightLimit" />
           <NavigationProperty Name="Order" Relationship="Self.FK_Order_Car" FromRole="Car" ToRole="Order" />
+          <Property Name="NumberСar" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="RegionNumber" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
@@ -471,6 +475,7 @@
           <NavigationProperty Name="Client" Relationship="Self.FK_Order_Client" FromRole="Order" ToRole="Client" />
           <NavigationProperty Name="OrderStatus" Relationship="Self.FK_Order_OrderStatus" FromRole="Order" ToRole="OrderStatus" />
           <NavigationProperty Name="ViewOrder" Relationship="Self.FK_Order_ViewOrder" FromRole="Order" ToRole="ViewOrder" />
+          <Property Name="Cost" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
         </EntityType>
         <EntityType Name="OrderStatus">
           <Key>
@@ -753,6 +758,8 @@
           <EntitySetMapping Name="Car">
             <EntityTypeMapping TypeName="CompanyBaseModel.Car">
               <MappingFragment StoreEntitySet="Car">
+                <ScalarProperty Name="RegionNumber" ColumnName="RegionNumber" />
+                <ScalarProperty Name="NumberСar" ColumnName="NumberСar" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ColorCarID" ColumnName="ColorCarID" />
                 <ScalarProperty Name="ViewCarID" ColumnName="ViewCarID" />
@@ -830,6 +837,7 @@
           <EntitySetMapping Name="Order">
             <EntityTypeMapping TypeName="CompanyBaseModel.Order">
               <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ClientID" ColumnName="ClientID" />
                 <ScalarProperty Name="CarID" ColumnName="CarID" />

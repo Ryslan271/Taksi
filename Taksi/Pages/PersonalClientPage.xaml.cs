@@ -16,26 +16,23 @@ using System.Windows.Shapes;
 namespace Taksi.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для PersonalEmployeePage.xaml
+    /// Логика взаимодействия для PersonalClientPage.xaml
     /// </summary>
-    public partial class PersonalEmployeePage : Page
+    public partial class PersonalClientPage : Page
     {
-        public PersonalEmployeePage()
+        public PersonalClientPage()
         {
-            EmployeePersonal = App.Employee;
+            ClientPersonal = App.Client;
 
             InitializeComponent();
         }
 
-        #region Обработчики
-
-        private void EditingEmployee(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (App.db.ChangeTracker.HasChanges() == false)
                 return;
 
             App.db.SaveChanges();
         }
-        #endregion
     }
 }
