@@ -67,7 +67,7 @@
           <Property Name="PhoneNumber" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="320" Nullable="false" />
           <Property Name="GradeUserID" Type="int" />
-          <Property Name="Age" Type="date" Nullable="false" />
+          <Property Name="Age" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="EmployeeDrivingCategories">
           <Key>
@@ -100,10 +100,8 @@
           <Property Name="CarID" Type="int" />
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
           <Property Name="Address" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="ViewOrderID" Type="int" Nullable="false" />
           <Property Name="OrderStatusID" Type="int" Nullable="false" />
-          <Property Name="TimeForExecution" Type="datetime" Nullable="false" />
-          <Property Name="FinalDestination" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="TimeForExecution" Type="time" Precision="7" Nullable="false" />
           <Property Name="Cost" Type="money" Nullable="false" />
         </EntityType>
         <EntityType Name="OrderStatus">
@@ -125,14 +123,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" MaxLength="20" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ViewOrder">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="WeightLimit">
           <Key>
@@ -297,18 +288,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Order_ViewOrder">
-          <End Role="ViewOrder" Type="Self.ViewOrder" Multiplicity="1" />
-          <End Role="Order" Type="Self.Order" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ViewOrder">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Order">
-              <PropertyRef Name="ViewOrderID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="Хранилище CompanyBaseModelContainer">
           <EntitySet Name="BrandCars" EntityType="Self.BrandCars" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Car" EntityType="Self.Car" Schema="dbo" store:Type="Tables" />
@@ -323,7 +302,6 @@
           <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ViewCar" EntityType="Self.ViewCar" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ViewOrder" EntityType="Self.ViewOrder" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WeightLimit" EntityType="Self.WeightLimit" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Car_BrandCars" Association="Self.FK_Car_BrandCars">
             <End Role="BrandCars" EntitySet="BrandCars" />
@@ -377,10 +355,6 @@
             <End Role="OrderStatus" EntitySet="OrderStatus" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
-          <AssociationSet Name="FK_Order_ViewOrder" Association="Self.FK_Order_ViewOrder">
-            <End Role="ViewOrder" EntitySet="ViewOrder" />
-            <End Role="Order" EntitySet="Order" />
-          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -399,7 +373,6 @@
           <EntitySet Name="OrderStatus" EntityType="CompanyBaseModel.OrderStatus" />
           <EntitySet Name="Role" EntityType="CompanyBaseModel.Role" />
           <EntitySet Name="ViewCar" EntityType="CompanyBaseModel.ViewCar" />
-          <EntitySet Name="ViewOrder" EntityType="CompanyBaseModel.ViewOrder" />
           <EntitySet Name="WeightLimit" EntityType="CompanyBaseModel.WeightLimit" />
           <AssociationSet Name="FK_Car_BrandCars" Association="CompanyBaseModel.FK_Car_BrandCars">
             <End Role="BrandCars" EntitySet="BrandCars" />
@@ -443,10 +416,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_Order_OrderStatus" Association="CompanyBaseModel.FK_Order_OrderStatus">
             <End Role="OrderStatus" EntitySet="OrderStatus" />
-            <End Role="Order" EntitySet="Order" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Order_ViewOrder" Association="CompanyBaseModel.FK_Order_ViewOrder">
-            <End Role="ViewOrder" EntitySet="ViewOrder" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
           <AssociationSet Name="EmployeeDrivingCategories" Association="CompanyBaseModel.EmployeeDrivingCategories">
@@ -527,7 +496,7 @@
           <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" Nullable="false" MaxLength="320" FixedLength="false" Unicode="true" />
           <Property Name="GradeUserID" Type="Int32" />
-          <Property Name="Age" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Car" Relationship="CompanyBaseModel.FK_Car_Employee" FromRole="Employee" ToRole="Car" />
           <NavigationProperty Name="GradeUser" Relationship="CompanyBaseModel.FK_Employee_GradeUser" FromRole="Employee" ToRole="GradeUser" />
           <NavigationProperty Name="Role" Relationship="CompanyBaseModel.FK_Employee_Role" FromRole="Employee" ToRole="Role" />
@@ -558,15 +527,12 @@
           <Property Name="CarID" Type="Int32" />
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="ViewOrderID" Type="Int32" Nullable="false" />
           <Property Name="OrderStatusID" Type="Int32" Nullable="false" />
-          <Property Name="TimeForExecution" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="FinalDestination" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TimeForExecution" Type="Time" Nullable="false" Precision="7" />
           <Property Name="Cost" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
           <NavigationProperty Name="Car" Relationship="CompanyBaseModel.FK_Order_Car" FromRole="Order" ToRole="Car" />
           <NavigationProperty Name="Client" Relationship="CompanyBaseModel.FK_Order_Client" FromRole="Order" ToRole="Client" />
           <NavigationProperty Name="OrderStatus" Relationship="CompanyBaseModel.FK_Order_OrderStatus" FromRole="Order" ToRole="OrderStatus" />
-          <NavigationProperty Name="ViewOrder" Relationship="CompanyBaseModel.FK_Order_ViewOrder" FromRole="Order" ToRole="ViewOrder" />
         </EntityType>
         <EntityType Name="OrderStatus">
           <Key>
@@ -589,16 +555,8 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="Title" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Car" Relationship="CompanyBaseModel.FK_Car_ViewCar" FromRole="ViewCar" ToRole="Car" />
-        </EntityType>
-        <EntityType Name="ViewOrder">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="Title" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Order" Relationship="CompanyBaseModel.FK_Order_ViewOrder" FromRole="ViewOrder" ToRole="Order" />
         </EntityType>
         <EntityType Name="WeightLimit">
           <Key>
@@ -740,23 +698,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Order_ViewOrder">
-          <End Type="CompanyBaseModel.ViewOrder" Role="ViewOrder" Multiplicity="1" />
-          <End Type="CompanyBaseModel.Order" Role="Order" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ViewOrder">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Order">
-              <PropertyRef Name="ViewOrderID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="EmployeeDrivingCategories">
           <End Type="CompanyBaseModel.DrivingLicenseCategory" Role="DrivingLicenseCategory" Multiplicity="*" />
           <End Type="CompanyBaseModel.Employee" Role="Employee" Multiplicity="*" />
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -852,10 +798,8 @@
             <EntityTypeMapping TypeName="CompanyBaseModel.Order">
               <MappingFragment StoreEntitySet="Order">
                 <ScalarProperty Name="Cost" ColumnName="Cost" />
-                <ScalarProperty Name="FinalDestination" ColumnName="FinalDestination" />
                 <ScalarProperty Name="TimeForExecution" ColumnName="TimeForExecution" />
                 <ScalarProperty Name="OrderStatusID" ColumnName="OrderStatusID" />
-                <ScalarProperty Name="ViewOrderID" ColumnName="ViewOrderID" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
                 <ScalarProperty Name="CarID" ColumnName="CarID" />
@@ -883,14 +827,6 @@
           <EntitySetMapping Name="ViewCar">
             <EntityTypeMapping TypeName="CompanyBaseModel.ViewCar">
               <MappingFragment StoreEntitySet="ViewCar">
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ViewOrder">
-            <EntityTypeMapping TypeName="CompanyBaseModel.ViewOrder">
-              <MappingFragment StoreEntitySet="ViewOrder">
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>

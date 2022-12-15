@@ -31,7 +31,7 @@ namespace Taksi
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
         public Nullable<int> GradeUserID { get; set; }
-        public System.DateTime Age { get; set; }
+        public int Age { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Car> Car { get; set; }

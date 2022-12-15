@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,11 +24,11 @@ namespace Taksi.Pages
         public StoryOrdersPage()
         {
             if (App.Client != null)
-                Orders = new System.Collections.ObjectModel.ObservableCollection<Order>(App.db.Order.Local.Where(x => x.Client == App.Client));
+                Orders = new ObservableCollection<Order>(App.db.Order.Local.Where(x => x.Client == App.Client));
             else if (App.Employee.RoleID != 0)
                 Orders = App.db.Order.Local;
             else
-                Orders = new System.Collections.ObjectModel.ObservableCollection<Order>(App.db.Order.Local.Where(x => x.Driver == App.Employee));
+                Orders = new ObservableCollection<Order>(App.db.Order.Local.Where(x => x.Car == App.Employee.Car));
 
             InitializeComponent();
         }

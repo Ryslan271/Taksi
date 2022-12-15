@@ -8,23 +8,13 @@ namespace Taksi.Windows
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window, INotifyPropertyChanged
+    public partial class MainWindow : Window
     {
-        public bool FlagClickTab
-        {
-            get => FlagClickTab;
-            set
-            {
-                FlagClickTab = value;
-                OnPropertyChaged();
-            }
-        }
-
         public static MainWindow Instance { get; set; }
 
         public MainWindow()
         {
-
+            FlagClickTab = Visibility.Visible;
 
             InitializeComponent();
             Instance = this;
@@ -36,11 +26,6 @@ namespace Taksi.Windows
             else
                 MainFrame.Navigate(new Pages.PersonalClientPage());
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void OnPropertyChaged() =>
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Visibility"));
 
         #region Обработчики
 
@@ -61,21 +46,26 @@ namespace Taksi.Windows
         {
             MainFrame.Navigate(new Pages.StoryOrdersPage());
         }
-        #endregion
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Tab && FlagClickTab == true)
+            if (e.Key == Key.Tab && FlagClickTab == Visibility.Visible)
             {
-                FlagClickTab = false;
+                FlagClickTab = Visibility.Collapsed;
                 Colum.Width = new GridLength(70);
 
             }
-            else if (e.Key == Key.Tab && FlagClickTab == false)
+            else if (e.Key == Key.Tab && FlagClickTab == Visibility.Collapsed)
             {
-                FlagClickTab = true;
+                FlagClickTab = Visibility.Visible;
                 Colum.Width = new GridLength(180);
             }
         }
+
+        private void MakeOrder_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new Pages.MakeOrderPage());
+        }
+        #endregion
     }
 }

@@ -8,9 +8,9 @@ namespace Taksi
 {
     public partial class Order
     {
-        public Employee Driver
+        public Employee Driver 
         {
-            get => App.db.Car.First(x => x.Order == this).Employee;
+            get => this.Car.Employee;
         }
     }
 }

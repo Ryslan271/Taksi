@@ -37,7 +37,6 @@ namespace Taksi
         public virtual DbSet<OrderStatus> OrderStatus { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<ViewCar> ViewCar { get; set; }
-        public virtual DbSet<ViewOrder> ViewOrder { get; set; }
         public virtual DbSet<WeightLimit> WeightLimit { get; set; }
     }
 }

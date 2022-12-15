@@ -60,18 +60,31 @@
                 <RadioButton Style="{StaticResource MenuButton}"
                              Click="Orders_Click">
                     <RadioButton.Content>
-                        <Image
-                        Source="/Resources/Image/icon_orders.png"
-                        Margin="5 0 0 0"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/Image/icon_orders.png"
+                                   Margin="5 0 0 0"/>
+                            <TextBlock Text="Список заказов"
+                                       Visibility="{Binding FlagClickTab}"
+                                       FontSize="15"
+                                       VerticalAlignment="Center"
+                                       Margin="5 0 0 0"/>
+                        </StackPanel>
                     </RadioButton.Content>
                 </RadioButton>
 
                 <RadioButton x:Name="OrdersListButton"
-                         Style="{StaticResource MenuButton}">
+                             Style="{StaticResource MenuButton}"
+                             Click="MakeOrder_Click">
                     <RadioButton.Content>
-                        <Image
-                        Source="Resources/Image/icon_postavchik.png"
-                        Margin="5 0 0 0"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/Image/makeOrder_icon.png"
+                                   Margin="5 0 0 0"/>
+                            <TextBlock Text="Создать заказ"
+                                       Visibility="{Binding FlagClickTab}"
+                                       FontSize="15"
+                                       VerticalAlignment="Center"
+                                       Margin="5 0 0 0"/>
+                        </StackPanel>
                     </RadioButton.Content>
                 </RadioButton>
 

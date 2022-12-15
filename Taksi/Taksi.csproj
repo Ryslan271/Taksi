@@ -76,6 +76,8 @@
     <Compile Include="ColorCar.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="DependencyProperties\MainWindow.cs" />
+    <Compile Include="DependencyProperties\MakeOrderPage.cs" />
     <Compile Include="DependencyProperties\PersonalClientPage.cs" />
     <Compile Include="DependencyProperties\PersonalEmployeePage.cs" />
     <Compile Include="DependencyProperties\StoryOrdersPage.cs" />
@@ -86,8 +88,8 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Extensions\Employee.Extension.cs" />
-    <Compile Include="Extensions\Order.Extension.cs" />
     <Compile Include="Extensions\Client.Extension.cs" />
+    <Compile Include="Extensions\Order.Extension.cs" />
     <Compile Include="GradeClient.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -105,6 +107,9 @@
     <Compile Include="OrderStatus.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Pages\MakeOrderPage.xaml.cs">
+      <DependentUpon>MakeOrderPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\PersonalClientPage.xaml.cs">
       <DependentUpon>PersonalClientPage.xaml</DependentUpon>
     </Compile>
@@ -120,9 +125,6 @@
     <Compile Include="ViewCar.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="ViewOrder.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="WeightLimit.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -132,6 +134,10 @@
     <Compile Include="Windows\RegistrationWindow.xaml.cs">
       <DependentUpon>RegistrationWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Pages\MakeOrderPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\PersonalClientPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -232,6 +238,7 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Image\makeOrder_icon.png" />
     <Resource Include="Resources\Image\homeIcon.png" />
     <Resource Include="Resources\Image\icon_orders.png" />
     <Resource Include="Resources\Image\logo.png" />

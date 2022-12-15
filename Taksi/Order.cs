@@ -19,15 +19,12 @@ namespace Taksi
         public Nullable<int> CarID { get; set; }
         public System.DateTime CreationDate { get; set; }
         public string Address { get; set; }
-        public int ViewOrderID { get; set; }
         public int OrderStatusID { get; set; }
-        public System.DateTime TimeForExecution { get; set; }
-        public string FinalDestination { get; set; }
+        public System.TimeSpan TimeForExecution { get; set; }
         public decimal Cost { get; set; }
     
         public virtual Car Car { get; set; }
         public virtual Client Client { get; set; }
         public virtual OrderStatus OrderStatus { get; set; }
-        public virtual ViewOrder ViewOrder { get; set; }
     }
 }

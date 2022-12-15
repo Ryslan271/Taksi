@@ -1,0 +1,79 @@
+﻿<Page x:Class="Taksi.Pages.MakeOrderPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Taksi.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MakeOrderPage"
+      DataContext="{Binding RelativeSource={RelativeSource Self}}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="395*"/>
+            <RowDefinition Height="39*"/>
+        </Grid.RowDefinitions>
+        <StackPanel HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Style="{StaticResource StyleStackPanel}"
+                    x:Name="ViewCarStackPanel"
+                    Visibility="Visible">
+
+            <TextBlock Text="Какой вид транспорта вас интересует?"/>
+            <ComboBox ItemsSource="{Binding ViewCars}"
+                      SelectedIndex="0"
+                      Margin="0 10 0 10"
+                      x:Name="ViewCarComboBox">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <ComboBoxItem Content="{Binding Title}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Button Content="Создать заказ" Click="ViewCar_Click"/>
+        </StackPanel>
+
+        <Grid x:Name="MakeOrderMainGrid"
+              HorizontalAlignment="Center"
+              VerticalAlignment="Center"
+              Visibility="Collapsed" 
+              Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding NowDateTime}"
+                           Margin="0 0 10 0"
+                           MinWidth="100"/>
+                <TextBlock Text="{Binding MakeOrder.Cost}"
+                           MinWidth="100"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal"
+                        Grid.Row="1"
+                        Margin="0 10 0 0">
+
+                <TextBox Text="{Binding MakeOrder.Address}"
+                         Margin="0 0 0 10"
+                         MinWidth="100"/>
+
+                <TextBox Text="{Binding MakeOrder.TimeForExecution}"
+                         Margin="0 0 0 10"
+                         MinWidth="100"/>
+            </StackPanel>
+        </Grid>
+
+        <Button Grid.Row="1"
+                x:Name="ButtonCancel"
+                Visibility="Collapsed"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Right"
+                Margin="0 0 50 0"
+                Content="Отменить заказ"
+                Padding="5 3"
+                Click="ButtonCancel_Click"/>
+    </Grid>
+</Page>

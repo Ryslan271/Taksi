@@ -16,6 +16,9 @@ namespace Taksi
         {
             db.Employee.Load();
             db.Client.Load();
+            db.ViewCar.Load();
+            db.Car.Load();
+            db.Order.Load();
         }
     }
 }
