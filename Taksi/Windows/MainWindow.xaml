@@ -8,16 +8,17 @@
         Title="TFE"
         Height="550"
         Width="900"
-        Icon="/Resources/Image/logoMin.png">
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        Icon="/Resources/Image/logoMin.png" KeyDown="Window_KeyDown">
     
-    <Grid>
+    <Grid x:Name="MainGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="12*"/>
             <RowDefinition Height="180*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="12*"/>
+            <ColumnDefinition Width="*" x:Name="Colum"/>
+            <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
 
         <Border BorderBrush="Black"
@@ -44,8 +45,15 @@
                          x:Name="ParsonCabinet"
                          Click="ParsonCabinet_Click">
                     <RadioButton.Content>
-                        <Image Margin="5 0 0 0"
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="5 0 0 0"
                            Source="/Resources/Image/homeIcon.png"/>
+                            <TextBlock Text="Личный кабинет"
+                                       Visibility="{Binding FlagClickTab}"
+                                       FontSize="15"
+                                       VerticalAlignment="Center"
+                                       Margin="5 0 0 0"/>
+                        </StackPanel>
                     </RadioButton.Content>
                 </RadioButton>
 

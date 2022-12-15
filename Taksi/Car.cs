@@ -21,13 +21,13 @@ namespace Taksi
         }
     
         public int ID { get; set; }
+        public string NumberСar { get; set; }
+        public int RegionNumber { get; set; }
         public int ColorCarID { get; set; }
         public int ViewCarID { get; set; }
         public int BrandCarsID { get; set; }
         public int WeightLimitID { get; set; }
         public int DriverID { get; set; }
-        public string NumberСar { get; set; }
-        public int RegionNumber { get; set; }
     
         public virtual BrandCars BrandCars { get; set; }
         public virtual ColorCar ColorCar { get; set; }

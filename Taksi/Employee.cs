@@ -18,6 +18,7 @@ namespace Taksi
         public Employee()
         {
             this.Car = new HashSet<Car>();
+            this.DrivingLicenseCategory = new HashSet<DrivingLicenseCategory>();
         }
     
         public int ID { get; set; }
@@ -30,13 +31,13 @@ namespace Taksi
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
         public Nullable<int> GradeUserID { get; set; }
-        public Nullable<int> DrivingLicenseCategoryID { get; set; }
         public System.DateTime Age { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Car> Car { get; set; }
-        public virtual DrivingLicenseCategory DrivingLicenseCategory { get; set; }
         public virtual GradeUser GradeUser { get; set; }
         public virtual Role Role { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DrivingLicenseCategory> DrivingLicenseCategory { get; set; }
     }
 }

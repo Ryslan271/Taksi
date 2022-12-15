@@ -12,7 +12,7 @@
                 Value="Transparent"/>
         <Setter
                 Property="Height"
-                Value="55" />
+                Value="35" />
         <Setter 
                 Property="FontFamily"
                 Value="Bahnschrift"/>
@@ -24,7 +24,7 @@
                 Value="auto" />
         <Setter
                 Property="Foreground"
-                Value="White" />
+                Value="Black" />
         <Setter
                 Property="Margin"
                 Value="10,0,0,10" />

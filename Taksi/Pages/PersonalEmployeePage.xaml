@@ -32,10 +32,13 @@
                 </StackPanel>
             </Border>
 
+            <TextBlock Text="{Binding EmployeePersonal.Role.Title}"
+                       HorizontalAlignment="Center"/>
+
             <StackPanel Orientation="Horizontal"
                         Style="{StaticResource ResourceKey=StyleStackPanel}"
                         HorizontalAlignment="Center"
-                        Margin="0 0 0 20">
+                        Margin="0 10 0 20">
                 
                 <StackPanel>
                     <TextBlock Text="Имя"/>
@@ -56,7 +59,7 @@
                              Text="{Binding EmployeePersonal.PhoneNumber}"/>
                 </StackPanel>
 
-                <StackPanel Margin="130 0 0 0">
+                <StackPanel Margin="50 0 0 0">
                     <TextBlock Text="Адрес электронной почты"/>
                     <TextBox x:Name="EmailBox"
                              Text="{Binding EmployeePersonal.Email}"/>
@@ -74,6 +77,24 @@
                              IsReadOnly="True"
                              Text="{Binding EmployeePersonal.GradeUser.Title}"/>
                 </StackPanel>
+
+                <Grid Margin="50 0 0 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="6*"/>
+                    </Grid.RowDefinitions>
+                    
+                    <TextBlock Text="Категории:"/>
+                    
+                    <ListBox ItemsSource="{Binding EmployeePersonal.DrivingLicenseCategory}"
+                             Grid.Row="1">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Title}"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
             </StackPanel>
 
             <Button Content="Изменить данные"
