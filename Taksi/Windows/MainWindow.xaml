@@ -10,11 +10,12 @@
         Width="900"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         Icon="/Resources/Image/logoMin.png" KeyDown="Window_KeyDown">
-    
+
     <Grid x:Name="MainGrid">
         <Grid.RowDefinitions>
-            <RowDefinition Height="12*"/>
-            <RowDefinition Height="180*"/>
+            <RowDefinition Height="11*"/>
+            <RowDefinition Height="160*"/>
+            <RowDefinition Height="7*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" x:Name="Colum"/>
@@ -24,7 +25,7 @@
         <Border BorderBrush="Black"
                 BorderThickness="0 0 1 1"
                 Grid.Column="0">
-            
+
             <TextBlock x:Name="MainName"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Left"
@@ -35,10 +36,9 @@
         </Border>
 
         <Border Grid.Column="0"
-                Grid.Row="1"
                 BorderThickness="0 0 1 0"
                 BorderBrush="Black"
-                Padding="0 10 3 0">
+                Padding="0 10 3 0" Margin="0,33,0,0" Grid.RowSpan="3">
 
             <StackPanel>
                 <RadioButton Style="{StaticResource MenuButton}"
@@ -58,7 +58,8 @@
                 </RadioButton>
 
                 <RadioButton Style="{StaticResource MenuButton}"
-                             Click="Orders_Click">
+                             Click="Orders_Click"
+                             x:Name="Orders">
                     <RadioButton.Content>
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resources/Image/icon_orders.png"
@@ -72,7 +73,7 @@
                     </RadioButton.Content>
                 </RadioButton>
 
-                <RadioButton x:Name="OrdersListButton"
+                <RadioButton x:Name="MakeOrderListButton"
                              Style="{StaticResource MenuButton}"
                              Click="MakeOrder_Click">
                     <RadioButton.Content>
@@ -108,13 +109,36 @@
                 </RadioButton>
 
                 <RadioButton Style="{StaticResource MenuButton}"
-                         Click="ButtonClickExit">
+                             Click="ButtonClickExit">
                     <RadioButton.Content>
-                        <Image
-                        Source="Resources/Image/icon_exit.png"
-                        Margin="5 0 0 0"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/Image/exit_icon.png"
+                                   Margin="5 0 0 0"/>
+                            <TextBlock Text="Выйти"
+                                       Visibility="{Binding FlagClickTab}"
+                                       FontSize="15"
+                                       VerticalAlignment="Center"
+                                       Margin="5 0 0 0"/>
+                        </StackPanel>
                     </RadioButton.Content>
                 </RadioButton>
+            </StackPanel>
+        </Border>
+
+        <Border CornerRadius="5 5 0 0"
+                BorderThickness="2"
+                Grid.Row="2"
+                Grid.Column="1"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                x:Name="StackPanelMessageInfo"
+                Padding="5 0 5 0">
+            
+            <StackPanel MaxWidth="300">
+
+                <TextBlock VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       x:Name="InformationMessage"/>
             </StackPanel>
         </Border>
 
@@ -122,7 +146,6 @@
                ScrollViewer.VerticalScrollBarVisibility="Visible"
                NavigationUIVisibility="Hidden"
                Grid.Column="1"
-               Margin="5 8 5 5"
                Grid.RowSpan="2"/>
     </Grid>
 </Window>

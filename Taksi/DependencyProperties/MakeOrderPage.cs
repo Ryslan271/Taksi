@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
-using Taksi.Windows;
 
 namespace Taksi.Pages
 {
@@ -35,5 +34,15 @@ namespace Taksi.Pages
 
         public static readonly DependencyProperty MakeOrderProperty =
             DependencyProperty.Register("MakeOrder", typeof(Order), typeof(MakeOrderPage));
+
+
+        public int Cost
+        {
+            get { return (int)GetValue(CostProperty); }
+            set { SetValue(CostProperty, value); }
+        }
+
+        public static readonly DependencyProperty CostProperty =
+            DependencyProperty.Register("Cost", typeof(int), typeof(MakeOrderPage));
     }
 }

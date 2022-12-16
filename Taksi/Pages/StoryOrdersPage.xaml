@@ -9,7 +9,7 @@
       Title="StoryOrdersPage"
       DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
-    <StackPanel>
+    <Grid>
         <ListBox ItemsSource="{Binding Orders}"
                  d:ItemsSource="{d:SampleData ItemCount=2}"
                  ItemContainerStyle="{StaticResource ResourceKey=ListBoxOrders}">
@@ -128,5 +128,5 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-    </StackPanel>
+    </Grid>
 </Page>
