@@ -111,11 +111,17 @@
                 </RadioButton>
 
                 <RadioButton Style="{StaticResource MenuButton}"
-                         Visibility="{Binding user.VisibilitiButton}">
+                             Click="ListClientButton_Click">
                     <RadioButton.Content>
-                        <Image
-                        Source="Resources/Image/icon_goinyourhouse.png"
-                        Margin="5 0 0 0"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/Image/listClient.png"
+                                   Margin="5 0 0 0"/>
+                            <TextBlock Text="Клиенты"
+                                       Visibility="{Binding FlagClickTab}"
+                                       FontSize="15"
+                                       VerticalAlignment="Center"
+                                       Margin="5 0 0 0"/>
+                        </StackPanel>
                     </RadioButton.Content>
                 </RadioButton>
 

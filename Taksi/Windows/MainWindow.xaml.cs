@@ -74,14 +74,9 @@ namespace Taksi.Windows
         }
         #endregion
 
-        private void MakeOrder_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new Pages.MakeOrderPage());
-        }
-        private void ListEmployeeButton_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new Pages.ListEmployee());
-        }
+        private void MakeOrder_Click(object sender, RoutedEventArgs e) => MainFrame.Navigate(new Pages.MakeOrderPage());
+        private void ListEmployeeButton_Click(object sender, RoutedEventArgs e) => MainFrame.Navigate(new Pages.ListEmployeePage());
+        private void ListClientButton_Click(object sender, RoutedEventArgs e) => MainFrame.Navigate(new Pages.ListClientPage());
         #endregion
 
         #region Вывод информация о том сохранен/не сохранен заказ

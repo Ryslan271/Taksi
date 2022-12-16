@@ -18,9 +18,9 @@ namespace Taksi.Pages
     /// <summary>
     /// Логика взаимодействия для ListEmployee.xaml
     /// </summary>
-    public partial class ListEmployee : Page
+    public partial class ListEmployeePage : Page
     {
-        public ListEmployee()
+        public ListEmployeePage()
         {
             Employees = App.db.Employee.Local;
 

@@ -3,7 +3,7 @@ using System.Windows;
 
 namespace Taksi.Pages
 {
-    public partial class ListEmployee
+    public partial class ListEmployeePage
     {
         public ObservableCollection<Employee> Employees
         {
@@ -12,6 +12,6 @@ namespace Taksi.Pages
         }
 
         public static readonly DependencyProperty EmployeesProperty =
-            DependencyProperty.Register("Employees", typeof(ObservableCollection<Employee>), typeof(ListEmployee));
+            DependencyProperty.Register("Employees", typeof(ObservableCollection<Employee>), typeof(ListEmployeePage));
     }
 }

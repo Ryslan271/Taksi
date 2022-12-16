@@ -12,6 +12,7 @@
     <Grid>
         <ListBox ItemsSource="{Binding Orders}"
                  d:ItemsSource="{d:SampleData ItemCount=2}"
+                 VirtualizingPanel.ScrollUnit="Pixel"
                  ItemContainerStyle="{StaticResource ResourceKey=ListBoxOrders}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
