@@ -25,7 +25,7 @@ namespace Taksi.Pages
         {
             if (App.Client != null)
                 Orders = new ObservableCollection<Order>(App.db.Order.Local.Where(x => x.Client == App.Client));
-            else if (App.Employee.RoleID != 0)
+            else if (App.Employee.RoleID == 0)
                 Orders = App.db.Order.Local;
             else
                 Orders = new ObservableCollection<Order>(App.db.Order.Local.Where(x => x.Car == App.Employee.Car));

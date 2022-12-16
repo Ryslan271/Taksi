@@ -36,6 +36,8 @@ namespace Taksi.Windows
 
         private void ButtonClickExit(object sender, RoutedEventArgs e)
         {
+            App.Client = null;
+            App.Employee = null;
             new LoginWindow().Show();
             Close();
         }
@@ -60,12 +62,14 @@ namespace Taksi.Windows
             {
                 FlagClickTab = Visibility.Collapsed;
                 Colum.Width = new GridLength(70);
+                MenuIcon.Width = 50;
 
             }
             else if (e.Key == Key.Tab && FlagClickTab == Visibility.Collapsed)
             {
                 FlagClickTab = Visibility.Visible;
                 Colum.Width = new GridLength(180);
+                MenuIcon.Width = 100;
             }
         }
         #endregion

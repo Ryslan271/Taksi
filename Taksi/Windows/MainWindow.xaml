@@ -41,14 +41,19 @@
                 Padding="0 10 3 0" Margin="0,33,0,0" Grid.RowSpan="3">
 
             <StackPanel>
-                <RadioButton Style="{StaticResource MenuButton}"
-                         x:Name="ParsonCabinet"
-                         Click="ParsonCabinet_Click">
+                <RadioButton x:Name="ParsonCabinet"
+                             Click="ParsonCabinet_Click"
+                             HorizontalAlignment="Center"
+                             Margin="0 0 0 10"
+                             Style="{StaticResource MenuButtonCustom}">
                     <RadioButton.Content>
-                        <StackPanel Orientation="Horizontal">
+                        <StackPanel>
                             <Image Margin="5 0 0 0"
-                           Source="/Resources/Image/homeIcon.png"/>
+                                   Source="/Resources/Image/homeIconClient.png"
+                                   Width="100"
+                                   x:Name="MenuIcon"/>
                             <TextBlock Text="Личный кабинет"
+                                       FontFamily="Bahnschrift"
                                        Visibility="{Binding FlagClickTab}"
                                        FontSize="15"
                                        VerticalAlignment="Center"

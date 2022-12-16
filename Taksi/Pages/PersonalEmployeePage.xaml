@@ -12,25 +12,10 @@
     <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto">
         <StackPanel Style="{StaticResource ResourceKey=StyleStackPanel}"
                     VerticalAlignment="Stretch"
-                    Margin="0 40 0 0">
+                    Margin="0 10 0 0">
 
-            <Border BorderBrush="Black"
-                    BorderThickness="0 0 0 2"
-                    Margin="0 0 0 20"
-                    Padding="0 0 0 10">
-                
-                <StackPanel Orientation="Horizontal">
-                    <Image Source="/Resources/Image/logo.png"
-                           MinWidth="200"
-                           MaxWidth="350"/>
-
-                    <TextBlock Margin="15 0 0 0"
-                               TextWrapping="Wrap"
-                               MaxWidth="350"
-                               TextAlignment="Left"
-                               Text="   Наша компания волнуется за наших клиентов и подбирает для них только самых профессиональных водителей, но будте внимательны, водители тоже могут ставить вам звезды, которые на прямую влияют на вашего будучего водителя!"/>
-                </StackPanel>
-            </Border>
+            <Image Source="/Resources/Image/homeIconClient.png"
+                    Width="150"/>
 
             <TextBlock Text="{Binding EmployeePersonal.Role.Title}"
                        HorizontalAlignment="Center"/>
@@ -78,7 +63,8 @@
                              Text="{Binding EmployeePersonal.GradeUser.Title}"/>
                 </StackPanel>
 
-                <Grid Margin="50 0 0 0">
+                <Grid Margin="50 0 0 0"
+                      Visibility="{Binding EmployeePersonal.AdministratorVisibility}">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="6*"/>
