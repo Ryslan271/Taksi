@@ -90,6 +90,7 @@
     <Compile Include="Employee.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Extensions\Car.Extension.cs" />
     <Compile Include="Extensions\Employee.Extension.cs" />
     <Compile Include="Extensions\Client.Extension.cs" />
     <Compile Include="Extensions\Order.Extension.cs" />
@@ -171,6 +172,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\StoryOrdersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Style\ListGroupStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -262,6 +267,7 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Image\listCars.png" />
     <Resource Include="Resources\Image\listClient.png" />
     <Resource Include="Resources\Image\listEmployee.png" />
     <Resource Include="Resources\Image\homeIconClient.png" />

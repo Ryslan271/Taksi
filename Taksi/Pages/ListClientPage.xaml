@@ -22,6 +22,15 @@
                             Padding="8"
                             CornerRadius="5">
                         <Grid>
+
+                            <Grid.Resources>
+                                <CollectionViewSource x:Key="cvsOrders" Source="{Binding Order}">
+                                    <CollectionViewSource.GroupDescriptions>
+                                        <PropertyGroupDescription PropertyName="InProcessing"/>
+                                    </CollectionViewSource.GroupDescriptions>
+                                </CollectionViewSource>
+                            </Grid.Resources>
+                            
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
@@ -84,9 +93,12 @@
                                                Margin="0 5 0 5"
                                                Grid.Row="0"/>
 
-                                    <ItemsControl ItemsSource="{Binding Order}"
+                                    <ItemsControl ItemsSource="{Binding Source={StaticResource cvsOrders}}"
                                                   Grid.Row="1"
                                                   Padding="2">
+                                        <ItemsControl.GroupStyle>
+                                            <GroupStyle ContainerStyle="{StaticResource ResourceKey=OrderListGroupStyle}"/>
+                                        </ItemsControl.GroupStyle>
                                         <ItemsControl.ItemTemplate>
                                             <DataTemplate>
                                                 <Border Grid.Column="1"

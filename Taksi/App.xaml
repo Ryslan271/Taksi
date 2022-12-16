@@ -9,6 +9,7 @@
                 <ResourceDictionary Source="/Resources/Style/LoginRegistStyle.xaml"/>
                 <ResourceDictionary Source="/Resources/Style/MenuButton.xaml"/>
                 <ResourceDictionary Source="/Resources/Style/StoryOrdersStyle.xaml"/>
+                <ResourceDictionary Source="/Resources/Style/ListGroupStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

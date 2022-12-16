@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +23,9 @@ namespace Taksi.Pages
     {
         public ListClientPage()
         {
-            Clients = App.db.Client.Local;
+            Clients = new CollectionViewSource { Source = App.db.Client.Local }.View;
+
+            Clients.GroupDescriptions.Add(new PropertyGroupDescription("InProcessing"));
 
             InitializeComponent();
         }

@@ -126,6 +126,21 @@
                 </RadioButton>
 
                 <RadioButton Style="{StaticResource MenuButton}"
+                             Click="RadioButton_Click">
+                    <RadioButton.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/Image/listCars.png"
+                                   Margin="5 0 0 0"/>
+                            <TextBlock Text="Машины"
+                                       Visibility="{Binding FlagClickTab}"
+                                       FontSize="15"
+                                       VerticalAlignment="Center"
+                                       Margin="5 0 0 0"/>
+                        </StackPanel>
+                    </RadioButton.Content>
+                </RadioButton>
+
+                <RadioButton Style="{StaticResource MenuButton}"
                              Click="ButtonClickExit">
                     <RadioButton.Content>
                         <StackPanel Orientation="Horizontal">

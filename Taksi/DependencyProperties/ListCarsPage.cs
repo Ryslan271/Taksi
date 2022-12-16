@@ -1,17 +1,17 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.ComponentModel;
 using System.Windows;
 
 namespace Taksi.Pages
 {
     public partial class ListCarsPage
     {
-        public ObservableCollection<Car> Cars
+        public ICollectionView Cars
         {
-            get { return (ObservableCollection<Car>)GetValue(CarsProperty); }
+            get { return (ICollectionView)GetValue(CarsProperty); }
             set { SetValue(CarsProperty, value); }
         }
 
         public static readonly DependencyProperty CarsProperty =
-            DependencyProperty.Register("Cars", typeof(ObservableCollection<Car>), typeof(ListCarsPage));
+            DependencyProperty.Register("Cars", typeof(ICollectionView), typeof(ListCarsPage));
     }
 }

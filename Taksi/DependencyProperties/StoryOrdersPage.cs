@@ -1,17 +1,17 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.ComponentModel;
 using System.Windows;
 
 namespace Taksi.Pages
 {
     public partial class StoryOrdersPage
     {
-        public ObservableCollection<Order> Orders
+        public ICollectionView Orders
         {
-            get { return (ObservableCollection<Order>)GetValue(OrdersProperty); }
+            get { return (ICollectionView)GetValue(OrdersProperty); }
             set { SetValue(OrdersProperty, value); }
         }
 
         public static readonly DependencyProperty OrdersProperty =
-            DependencyProperty.Register("Orders", typeof(ObservableCollection<Order>), typeof(StoryOrdersPage));
+            DependencyProperty.Register("Orders", typeof(ICollectionView), typeof(StoryOrdersPage));
     }
 }

@@ -14,6 +14,9 @@
                  d:ItemsSource="{d:SampleData ItemCount=2}"
                  VirtualizingPanel.ScrollUnit="Pixel"
                  ItemContainerStyle="{StaticResource ResourceKey=ListBoxOrders}">
+            <ListBox.GroupStyle>
+                <GroupStyle ContainerStyle="{StaticResource ResourceKey=OrderListGroupStyle}"/>
+            </ListBox.GroupStyle>
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Border Margin="5 20 5 0"

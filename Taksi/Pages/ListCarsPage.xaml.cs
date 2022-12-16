@@ -22,6 +22,10 @@ namespace Taksi.Pages
     {
         public ListCarsPage()
         {
+            Cars = new CollectionViewSource { Source = App.db.Car.Local }.View;
+
+            Cars.GroupDescriptions.Add(new PropertyGroupDescription("StatusCar"));
+
             InitializeComponent();
         }
     }
