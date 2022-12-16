@@ -17,8 +17,14 @@ namespace Taksi.Pages
         public MakeOrderPage()
         {
             ViewCars = App.db.ViewCar.Local;
+            Clients = App.db.Client.Local;
 
             InitializeComponent();
+
+            if (App.Client != null)
+                ClientView.Visibility = Visibility.Collapsed;
+            else
+                ClientView.Visibility = Visibility.Visible;
         }
 
         #region Обработчики
@@ -26,6 +32,9 @@ namespace Taksi.Pages
         private void ViewCar_Click(object sender, RoutedEventArgs e)
         {
             if (ViewCarComboBox.SelectedItem == null)
+                return;
+
+            if (ClientComboBox.SelectedItem == null)
                 return;
 
             Cars = new System.Collections.ObjectModel.ObservableCollection<Car>
@@ -80,7 +89,8 @@ namespace Taksi.Pages
                 MakeOrder = new Order
                 {
                     CreationDate = NowDateTime,
-                    OrderStatusID = 0
+                    OrderStatusID = 0,
+                    Client = ClientComboBox.SelectedItem as Client
                 };
         }
 

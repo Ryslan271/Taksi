@@ -44,5 +44,15 @@ namespace Taksi.Pages
 
         public static readonly DependencyProperty CostProperty =
             DependencyProperty.Register("Cost", typeof(int), typeof(MakeOrderPage));
+
+
+        public IEnumerable<Client> Clients
+        {
+            get { return (IEnumerable<Client>)GetValue(ClientsProperty); }
+            set { SetValue(ClientsProperty, value); }
+        }
+
+        public static readonly DependencyProperty ClientsProperty =
+            DependencyProperty.Register("Clients", typeof(IEnumerable<Client>), typeof(MakeOrderPage));
     }
 }
