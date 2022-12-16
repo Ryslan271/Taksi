@@ -78,6 +78,10 @@ namespace Taksi.Windows
         {
             MainFrame.Navigate(new Pages.MakeOrderPage());
         }
+        private void ListEmployeeButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new Pages.ListEmployee());
+        }
         #endregion
 
         #region Вывод информация о том сохранен/не сохранен заказ
@@ -114,5 +118,6 @@ namespace Taksi.Windows
             Instance.StackPanelMessageInfo.BorderBrush = Brushes.Transparent;
         }
         #endregion
+
     }
 }

@@ -44,7 +44,7 @@
                 <RadioButton x:Name="ParsonCabinet"
                              Click="ParsonCabinet_Click"
                              HorizontalAlignment="Center"
-                             Margin="0 0 0 10"
+                             Margin="0 10 0 10"
                              Style="{StaticResource MenuButtonCustom}">
                     <RadioButton.Content>
                         <StackPanel>
@@ -95,12 +95,18 @@
                 </RadioButton>
 
                 <RadioButton x:Name="MakeOrderButton"
-                         Style="{StaticResource MenuButton}"
-                         Visibility="{Binding user.VisibilitiUserToMakeOrAddOrdernd4}">
+                             Style="{StaticResource MenuButton}"
+                             Click="ListEmployeeButton_Click">
                     <RadioButton.Content>
-                        <Image
-                        Source="Resources/Image/icon_orders.png"
-                        Margin="5 0 0 0"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/Image/listEmployee.png"
+                                   Margin="5 0 0 0"/>
+                            <TextBlock Text="Сотрудники"
+                                       Visibility="{Binding FlagClickTab}"
+                                       FontSize="15"
+                                       VerticalAlignment="Center"
+                                       Margin="5 0 0 0"/>
+                        </StackPanel>
                     </RadioButton.Content>
                 </RadioButton>
 
