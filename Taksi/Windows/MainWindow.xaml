@@ -36,7 +36,14 @@
 
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resources/Image/homeIconClient.png"
-                               x:Name="MenuIcon"/>
+                                   x:Name="MenuIcon">
+                                <Image.Effect>
+                                    <DropShadowEffect Direction="0"
+                                                      Color="Black"
+                                                      ShadowDepth="0"
+                                                      BlurRadius="5" />
+                                </Image.Effect>
+                            </Image>
 
                             <StackPanel Margin="10 0 0 0">
                                 <TextBlock Text="{Binding FullNameUser,

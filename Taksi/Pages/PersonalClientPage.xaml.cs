@@ -73,7 +73,7 @@ namespace Taksi.Pages
                                                                   x.Email == EmailBox.Text.Trim() ||
                                                                   x.PhoneNumber == PhoneBox.Text.Trim());
 
-            if (user != null)
+            if (user != null && LoginBox.Text.Trim() != App.Client.Login)
             {
                 MessageBox.Show("Пользователь с таким логином" +
                                 " или адресом электронной почты" +
