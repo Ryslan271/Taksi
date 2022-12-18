@@ -29,5 +29,7 @@ namespace Taksi.Pages
 
             InitializeComponent();
         }
+
+        private void AddClient_Click(object sender, RoutedEventArgs e) => new Windows.MakeClientWindow().ShowDialog();
     }
 }

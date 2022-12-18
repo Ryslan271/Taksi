@@ -22,9 +22,13 @@ namespace Taksi.Pages
     {
         public ListEmployeePage()
         {
-            Employees = App.db.Employee.Local;
+            Employees = new CollectionViewSource { Source = App.db.Employee.Local }.View;
+
+            Employees.GroupDescriptions.Add(new PropertyGroupDescription("InProcessing"));
 
             InitializeComponent();
         }
+
+        private void AddNewEmployee_Click(object sender, RoutedEventArgs e) => new Windows.MakeEmployeeWindow().ShowDialog();
     }
 }

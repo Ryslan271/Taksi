@@ -10,6 +10,7 @@
                 <ResourceDictionary Source="/Resources/Style/MenuButton.xaml"/>
                 <ResourceDictionary Source="/Resources/Style/StoryOrdersStyle.xaml"/>
                 <ResourceDictionary Source="/Resources/Style/ListGroupStyle.xaml"/>
+                <ResourceDictionary Source="/Resources/Style/GridGeneralStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

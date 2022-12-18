@@ -33,7 +33,7 @@
             </ComboBox>
 
             <StackPanel x:Name="ClientView">
-                <TextBlock Text="Какой вид транспорта вас интересует?"/>
+                <TextBlock Text="ФИО Клиента"/>
                 <ComboBox ItemsSource="{Binding Clients}"
                       SelectedIndex="0"
                       Margin="0 10 0 10"

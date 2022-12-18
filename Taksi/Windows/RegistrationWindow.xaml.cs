@@ -40,7 +40,7 @@ namespace Taksi.Windows
             if (!Regex.IsMatch(password, @"[!@#$%^]"))
                 message.Add("В пароле должен быть хотя бы одний из символов ! @ # $ % ^");
 
-            return message == null ? (null, true) : (message, false);
+            return message.Count == 0 ? (null, true) : (message, false);
         }
 
         private bool ValidateChangesData() =>

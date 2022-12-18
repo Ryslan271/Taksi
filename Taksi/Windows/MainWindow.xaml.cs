@@ -68,7 +68,7 @@ namespace Taksi.Windows
             else if (e.Key == Key.Tab && FlagClickTab == Visibility.Collapsed)
             {
                 FlagClickTab = Visibility.Visible;
-                Colum.Width = new GridLength(180);
+                Colum.Width = new GridLength(200);
                 MenuIcon.Width = 100;
             }
         }
@@ -77,16 +77,17 @@ namespace Taksi.Windows
         private void MakeOrder_Click(object sender, RoutedEventArgs e) => MainFrame.Navigate(new Pages.MakeOrderPage());
         private void ListEmployeeButton_Click(object sender, RoutedEventArgs e) => MainFrame.Navigate(new Pages.ListEmployeePage());
         private void ListClientButton_Click(object sender, RoutedEventArgs e) => MainFrame.Navigate(new Pages.ListClientPage());
-        private void RadioButton_Click(object sender, RoutedEventArgs e) => MainFrame.Navigate(new Pages.ListCarsPage());
+        private void ListCars_Click(object sender, RoutedEventArgs e) => MainFrame.Navigate(new Pages.ListCarsPage());
+        private void CarEditEmployee_Click(object sender, RoutedEventArgs e) => MainFrame.Navigate(new Pages.CarEditEmployeePage());
         #endregion
 
-        #region Вывод информация о том сохранен/не сохранен заказ
+        #region Вывод информация о том сохранен/не сохранен
 
         public static void GoMessager(bool flag)
         {
             if (flag)
             {
-                Instance.InformationMessage.Text = "Заказ сохранен";
+                Instance.InformationMessage.Text = "Запись сохранена";
                 Instance.InformationMessage.Foreground = Brushes.White;
 
                 Instance.StackPanelMessageInfo.Background = Brushes.Green;
@@ -94,7 +95,7 @@ namespace Taksi.Windows
             }
             else
             {
-                Instance.InformationMessage.Text = "Заказ отменен";
+                Instance.InformationMessage.Text = "Запись отменена";
                 Instance.InformationMessage.Foreground = Brushes.White;
 
                 Instance.StackPanelMessageInfo.Background = Brushes.Red;

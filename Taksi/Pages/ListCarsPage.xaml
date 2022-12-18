@@ -10,11 +10,14 @@
       DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="17*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
         <ListBox ItemsSource="{Binding Cars}"
-                 Grid.Row="1"
                  Padding="2"
                  d:ItemsSource="{d:SampleData ItemCount=2}"
-                 ItemContainerStyle="{StaticResource ResourceKey=ListBoxOrders}">
+                 ItemContainerStyle="{StaticResource ResourceKey=ListBoxOrders}" Grid.RowSpan="2">
             <ListBox.GroupStyle>
                 <GroupStyle ContainerStyle="{StaticResource ResourceKey=OrderListGroupStyle}"/>
             </ListBox.GroupStyle>
@@ -57,5 +60,13 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+
+        <Button Grid.Row="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Padding="5 3"
+                Content="Добавить машину на учёт"
+                Margin="0 0 20 0"
+                Click="AddCar_Click"/>
     </Grid>
 </Page>

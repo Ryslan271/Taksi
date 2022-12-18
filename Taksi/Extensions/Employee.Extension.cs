@@ -18,5 +18,18 @@ namespace Taksi
                 return Visibility.Visible;
             }
         }
+
+        public string InProcessing
+        {
+            get
+            {
+                if (this.RoleID == 0)
+                    return "Администратор";
+                else if (this.RoleID == 1)
+                    return "Водитель";
+
+                return "Поддержка";
+            }
+        }
     }
 }

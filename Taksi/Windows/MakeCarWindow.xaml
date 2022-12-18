@@ -1,0 +1,166 @@
+﻿<Window x:Class="Taksi.Windows.MakeCarWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Taksi.Windows"
+        mc:Ignorable="d"
+        Title="Добавление новой машины" Height="600" Width="400"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}">
+    
+    <Grid Margin="10"
+          Style="{StaticResource StyleGridPanel}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+
+
+        <TextBlock Grid.Row="0"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Text="Описание новой машины"/>
+
+        <TextBlock Grid.Row="1"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Text="Бренд машины"/>
+        <ComboBox ItemsSource="{Binding BrandCarses}"
+                  SelectedIndex="0"
+                  Grid.Row="2"
+                  x:Name="ComboBoxBrandCarses"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center"
+                  MinWidth="200">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <ComboBoxItem Content="{Binding Title}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <TextBlock Grid.Row="3"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Text="Вид машины"/>
+        <ComboBox ItemsSource="{Binding ViewCarses}"
+                  SelectedIndex="0"
+                  Grid.Row="4"
+                  x:Name="ComboBoxViewCarses"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center"
+                  MinWidth="200">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <ComboBoxItem Content="{Binding Title}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <TextBlock Grid.Row="5"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Text="Цвет машины"/>
+        <ComboBox ItemsSource="{Binding ColorsCars}"
+                  SelectedIndex="0"
+                  x:Name="ComboBoxColorsCars"
+                  Grid.Row="6"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center"
+                  MinWidth="200">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <ComboBoxItem Content="{Binding Title}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <TextBlock Grid.Row="7"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Text="Максимальная грузоподъемность"/>
+        <ComboBox ItemsSource="{Binding WeightLimits}"
+                  SelectedIndex="0"
+                  x:Name="ComboBoxWeightLimits"
+                  Grid.Row="8"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center"
+                  MinWidth="200">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <ComboBoxItem Content="{Binding Weidht}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <TextBlock Grid.Row="9"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Text="Водитель(Не обязательно)"/>
+        <ComboBox ItemsSource="{Binding Drivers}"
+                  x:Name="ComboBoxDrivers"
+                  Grid.Row="10"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center"
+                  MinWidth="200">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <ComboBoxItem Content="{Binding FullName}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <TextBlock Grid.Row="11"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Text="Регион"/>
+        <TextBox Text="{Binding NewCar.RegionNumber}"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 Grid.Row="12"
+                 MinWidth="200"/>
+
+        <TextBlock Grid.Row="13"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Text="Номер"/>
+        <TextBox Text="{Binding NewCar.NumberСar}"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 Grid.Row="14"
+                 MinWidth="200"/>
+
+        <StackPanel Grid.Row="15"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+
+            <Button Content="Сохранить новой автомобиль"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Padding="5 3"
+                    Click="SaveNewCar_Click"/>
+            
+            <Button Content="Отмена"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Padding="5 3"
+                    Click="ExitWindow_Click"
+                    Margin="10 0 0 0"/>
+        </StackPanel>
+    </Grid>
+</Window>

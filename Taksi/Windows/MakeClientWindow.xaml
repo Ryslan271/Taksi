@@ -1,0 +1,66 @@
+﻿<Window x:Class="Taksi.Windows.MakeClientWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Taksi.Windows"
+        mc:Ignorable="d"
+        Title="Окно создание нового клиента" Height="450" Width="800"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}">
+    <Grid>
+        <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <StackPanel Style="{StaticResource ResourceKey=StyleStackPanel}"
+                    VerticalAlignment="Stretch"
+                    Margin="0 10 0 0">
+
+                <Image Source="/Resources/Image/homeIconClient.png"
+                    Width="150"/>
+
+                <StackPanel Orientation="Horizontal"
+                        Style="{StaticResource ResourceKey=StyleStackPanel}"
+                        HorizontalAlignment="Center"
+                        Margin="0 20 0 20">
+
+                    <StackPanel>
+                        <TextBlock Text="Имя"/>
+                        <TextBox x:Name="NameBox"
+                             MinWidth="200"
+                             Text="{Binding NewClient.Name}"/>
+
+                        <TextBlock Text="Фамилия"/>
+                        <TextBox x:Name="SurnameBox"
+                             Text="{Binding NewClient.Surname}"/>
+
+                        <TextBlock Text="Отчество"/>
+                        <TextBox x:Name="PatronymicBox"
+                             Text="{Binding NewClient.Patronymic}"/>
+
+                        <TextBlock Text="Телефон"/>
+                        <TextBox x:Name="PhoneBox"
+                             Text="{Binding NewClient.PhoneNumber}"/>
+                    </StackPanel>
+
+                    <StackPanel Margin="130 0 0 0">
+                        <TextBlock Text="Адрес электронной почты"/>
+                        <TextBox x:Name="EmailBox"
+                             Text="{Binding NewClient.Email}"/>
+
+                        <TextBlock Text="Логин"/>
+                        <TextBox x:Name="LoginBox"
+                             Text="{Binding NewClient.Login}"/>
+
+                        <TextBlock Text="Пароль"/>
+                        <TextBox x:Name="PasswordBox"
+                             Text="{Binding NewClient.Password}"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <Button Content="Изменить данные"
+                    Margin="0 0 0 0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Padding="15 4" Click="SaveNewClient_Click"/>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>

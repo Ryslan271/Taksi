@@ -11,24 +11,29 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Taksi.Pages
+namespace Taksi.Windows
 {
     /// <summary>
-    /// Логика взаимодействия для PersonalClientPage.xaml
+    /// Логика взаимодействия для MakeEmployeeWindow.xaml
     /// </summary>
-    public partial class PersonalClientPage : Page
+    public partial class MakeEmployeeWindow : Window
     {
-        public PersonalClientPage()
+        public static MakeEmployeeWindow Instance { get; set; }
+
+        public MakeEmployeeWindow()
         {
-            ClientPersonal = App.Client;
+            NewEmployee = new Employee();
+
+            Roles = App.db.Role.Local;
 
             InitializeComponent();
+
+            Instance = this;
         }
 
-        #region Метод
+        #region Методы
 
         private (List<string>, bool) ValidatePassword(string password)
         {
@@ -53,23 +58,43 @@ namespace Taksi.Pages
                PhoneBox.Text.Trim() == "" ||
                EmailBox.Text.Trim() == "" ||
                LoginBox.Text.Trim() == "" ||
+               AgeBox.Text.Trim() == "" ||
                PasswordBox.Text.Trim() == "";
         #endregion
 
         #region Обработчики
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void AddNewDrivingLicenseCategory_Click(object sender, RoutedEventArgs e)
         {
-            if (App.db.ChangeTracker.HasChanges() == false)
-                return;
+            new MakeDrivingLicenseCategory(NewEmployee, false).ShowDialog();
+        }
 
+        private void DeleteNewDrivingLicenseCategory_Click(object sender, RoutedEventArgs e)
+        {
+            if (ListDrivingLicenseCategory.SelectedItem == null)
+            {
+                MessageBox.Show("Для удаление категории, выберите одну категорию из списка");
+                return;
+            }
+
+            NewEmployee.DrivingLicenseCategory.Remove(ListDrivingLicenseCategory.SelectedItem as DrivingLicenseCategory);
+            ListDrivingLicenseCategory.Items.Refresh();
+
+            App.db.SaveChanges();
+        }
+
+        private void SaveNewEmployee_Click(object sender, RoutedEventArgs e)
+        {
             if (ValidateChangesData())
             {
                 MessageBox.Show("Поля не должны оставаться пустыми", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
-            Client user = App.db.Client.Local.FirstOrDefault(x => x.Login == LoginBox.Text.Trim() ||
+            if (ComboBoxRoleEmployee.SelectedItem == null)
+                return;
+
+            Employee user = App.db.Employee.Local.FirstOrDefault(x => x.Login == LoginBox.Text.Trim() ||
                                                                   x.Email == EmailBox.Text.Trim() ||
                                                                   x.PhoneNumber == PhoneBox.Text.Trim());
 
@@ -90,8 +115,32 @@ namespace Taksi.Pages
                 return;
             }
 
+            if (NewEmployee.Age < 18)
+            {
+                MessageBox.Show("Нельзя добавлять сотрудников, которым меньше 18 лет", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            NewEmployee.Role = ComboBoxRoleEmployee.SelectedItem as Role;
+
+            App.db.Employee.Local.Add(NewEmployee);
+
             App.db.SaveChanges();
+
+            MainWindow.GoMessager(true);
+        }
+
+        private void ComboBoxRoleEmployee_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (GridDrivingLicenseCategory == null)
+                return;
+
+            if ((ComboBoxRoleEmployee.SelectedItem as Role).ID == 1)
+                GridDrivingLicenseCategory.Visibility = Visibility.Visible;
+            else
+                GridDrivingLicenseCategory.Visibility = Visibility.Collapsed;
         }
         #endregion
+
     }
 }

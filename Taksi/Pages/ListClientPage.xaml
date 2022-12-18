@@ -10,7 +10,12 @@
       DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="17*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
         <ListBox ItemsSource="{Binding Clients}"
+                 Margin="0 0 0 10"
                  d:ItemsSource="{d:SampleData ItemCount=2}"
                  VirtualizingPanel.ScrollUnit="Pixel"
                  ItemContainerStyle="{StaticResource ResourceKey=ListBoxOrders}">
@@ -176,5 +181,15 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+
+        <StackPanel VerticalAlignment="Center"
+                    HorizontalAlignment="Right"
+                    Grid.Row="1"
+                    Margin="0 0 20 0">
+            
+            <Button Content="Добавить клиента"
+                    Click="AddClient_Click"
+                    Padding="5 3"/>
+        </StackPanel>
     </Grid>
 </Page>

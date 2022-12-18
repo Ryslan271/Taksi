@@ -16,20 +16,20 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NumberСar" Type="nvarchar" MaxLength="12" Nullable="false" />
           <Property Name="RegionNumber" Type="int" Nullable="false" />
           <Property Name="ColorCarID" Type="int" Nullable="false" />
           <Property Name="ViewCarID" Type="int" Nullable="false" />
           <Property Name="BrandCarsID" Type="int" Nullable="false" />
           <Property Name="WeightLimitID" Type="int" Nullable="false" />
-          <Property Name="DriverID" Type="int" Nullable="false" />
+          <Property Name="DriverID" Type="int" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Surname" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Patronymic" Type="nvarchar" MaxLength="100" Nullable="false" />
@@ -57,7 +57,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Surname" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Patronymic" Type="nvarchar" MaxLength="100" Nullable="false" />
@@ -157,7 +157,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Car_Employee">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
           <End Role="Car" Type="Self.Car" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
@@ -442,7 +442,7 @@
           <Property Name="ViewCarID" Type="Int32" Nullable="false" />
           <Property Name="BrandCarsID" Type="Int32" Nullable="false" />
           <Property Name="WeightLimitID" Type="Int32" Nullable="false" />
-          <Property Name="DriverID" Type="Int32" Nullable="false" />
+          <Property Name="DriverID" Type="Int32" />
           <NavigationProperty Name="BrandCars" Relationship="CompanyBaseModel.FK_Car_BrandCars" FromRole="Car" ToRole="BrandCars" />
           <NavigationProperty Name="ColorCar" Relationship="CompanyBaseModel.FK_Car_ColorCar" FromRole="Car" ToRole="ColorCar" />
           <NavigationProperty Name="Employee" Relationship="CompanyBaseModel.FK_Car_Employee" FromRole="Car" ToRole="Employee" />
@@ -454,7 +454,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Surname" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Patronymic" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
@@ -486,7 +486,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Surname" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Patronymic" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
@@ -591,7 +591,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Car_Employee">
-          <End Type="CompanyBaseModel.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="CompanyBaseModel.Employee" Role="Employee" Multiplicity="0..1" />
           <End Type="CompanyBaseModel.Car" Role="Car" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">

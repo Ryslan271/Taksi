@@ -27,7 +27,7 @@ namespace Taksi
         public int ViewCarID { get; set; }
         public int BrandCarsID { get; set; }
         public int WeightLimitID { get; set; }
-        public int DriverID { get; set; }
+        public Nullable<int> DriverID { get; set; }
     
         public virtual BrandCars BrandCars { get; set; }
         public virtual ColorCar ColorCar { get; set; }

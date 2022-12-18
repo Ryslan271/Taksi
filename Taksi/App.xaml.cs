@@ -18,7 +18,9 @@ namespace Taksi
             db.Client.Load();
             db.ViewCar.Load();
             db.Car.Load();
+            db.Role.Load();
             db.Order.Load();
+            db.DrivingLicenseCategory.Load();
         }
     }
 }
