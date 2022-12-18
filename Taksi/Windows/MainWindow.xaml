@@ -6,15 +6,16 @@
         xmlns:local="clr-namespace:Taksi.Windows"
         mc:Ignorable="d"
         Title="TFE"
-        Height="550"
+        Height="650"
         Width="1100"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
-        Icon="/Resources/Image/logoMin.png" KeyDown="Window_KeyDown">
+        Icon="/Resources/Image/logoMin.png"
+        KeyDown="Window_KeyDown">
 
     <Grid x:Name="MainGrid">
         <Grid.RowDefinitions>
-            <RowDefinition Height="11*"/>
-            <RowDefinition Height="160*"/>
+            <RowDefinition Height="23*"/>
+            <RowDefinition Height="120*"/>
             <RowDefinition Height="7*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -22,49 +23,62 @@
             <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
 
-        <Border BorderBrush="Black"
-                BorderThickness="0 0 1 1"
-                Grid.Column="0">
+        <StackPanel Grid.Column="1">
+            <RadioButton x:Name="ParsonCabinet"
+                         Click="ParsonCabinet_Click"
+                         Style="{StaticResource MenuButtonCustom}"
+                         VerticalAlignment="Center"
+                         Margin="10 7 10 0 "
+                         Height="70">
+                <RadioButton.Content>
+                    <Border Padding="8"
+                        MinWidth="300">
 
-            <TextBlock x:Name="MainName"
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Left"
-                       FontSize="15"
-                       Margin="10 0 0 0"
-                       Text="Home"
-                       FontFamily="Bahnschrift"/>
-        </Border>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/Image/homeIconClient.png"
+                               x:Name="MenuIcon"/>
 
-        <Border Grid.Column="0"
-                BorderThickness="0 0 1 0"
-                BorderBrush="Black"
-                Padding="0 10 3 0" Margin="0,33,0,0" Grid.RowSpan="3">
-
-            <StackPanel>
-                <RadioButton x:Name="ParsonCabinet"
-                             Click="ParsonCabinet_Click"
-                             HorizontalAlignment="Center"
-                             Margin="0 10 0 10"
-                             Style="{StaticResource MenuButtonCustom}">
-                    <RadioButton.Content>
-                        <StackPanel>
-                            <Image Margin="5 0 0 0"
-                                   Source="/Resources/Image/homeIconClient.png"
-                                   Width="100"
-                                   x:Name="MenuIcon"/>
-                            <TextBlock Text="Личный кабинет"
+                            <StackPanel Margin="10 0 0 0">
+                                <TextBlock Text="{Binding FullNameUser,
+                                       StringFormat='{}Добрый день, {0}'}"
                                        FontFamily="Bahnschrift"
-                                       Visibility="{Binding FlagClickTab}"
-                                       FontSize="15"
+                                       FontSize="25"
                                        VerticalAlignment="Center"
                                        Margin="5 0 0 0"/>
-                        </StackPanel>
-                    </RadioButton.Content>
-                </RadioButton>
 
+                                <TextBlock Text="Личный кабинет"
+                                       FontFamily="Bahnschrift"
+                                       FontSize="10"
+                                       Foreground="#6c757d"
+                                       VerticalAlignment="Center"
+                                       Margin="5 0 0 0"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </RadioButton.Content>
+            </RadioButton>
+        </StackPanel>
+
+        <Image Source="/Resources/Image/logo.png"
+               Width="200"
+               x:Name="MainImagPersonal"
+               Visibility="{Binding FlagClickTab}"/>
+
+        <Border Grid.Column="0"
+                BorderThickness="0 1 1 0"
+                BorderBrush="Black"
+                CornerRadius="3"
+                Padding="0 10 3 0"
+                Margin="0 10 0 0"
+                Grid.Row="1"
+                Grid.RowSpan="2">
+
+            <StackPanel>
+                
                 <RadioButton Style="{StaticResource MenuButton}"
                              Click="Orders_Click"
-                             x:Name="Orders">
+                             x:Name="Orders"
+                             Margin="10 10 0 0">
                     <RadioButton.Content>
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resources/Image/icon_orders.png"
@@ -80,7 +94,8 @@
 
                 <RadioButton x:Name="MakeOrderListButton"
                              Style="{StaticResource MenuButton}"
-                             Click="MakeOrder_Click">
+                             Click="MakeOrder_Click"
+                             Margin="10 10 0 0">
                     <RadioButton.Content>
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resources/Image/makeOrder_icon.png"
@@ -96,7 +111,8 @@
 
                 <RadioButton x:Name="MakeOrderButton"
                              Style="{StaticResource MenuButton}"
-                             Click="ListEmployeeButton_Click">
+                             Click="ListEmployeeButton_Click"
+                             Margin="10 10 0 0">
                     <RadioButton.Content>
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resources/Image/listEmployee.png"
@@ -111,7 +127,8 @@
                 </RadioButton>
 
                 <RadioButton Style="{StaticResource MenuButton}"
-                             Click="ListClientButton_Click">
+                             Click="ListClientButton_Click"
+                             Margin="10 10 0 0">
                     <RadioButton.Content>
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resources/Image/listClient.png"
@@ -126,7 +143,8 @@
                 </RadioButton>
 
                 <RadioButton Style="{StaticResource MenuButton}"
-                             Click="ListCars_Click">
+                             Click="ListCars_Click"
+                             Margin="10 10 0 0">
                     <RadioButton.Content>
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resources/Image/listCars.png"
@@ -141,7 +159,8 @@
                 </RadioButton>
 
                 <RadioButton Style="{StaticResource MenuButton}"
-                             Click="CarEditEmployee_Click">
+                             Click="CarEditEmployee_Click"
+                             Margin="10 10 0 0">
                     <RadioButton.Content>
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resources/Image/carEmployee.png"
@@ -165,7 +184,8 @@
                 </RadioButton>
 
                 <RadioButton Style="{StaticResource MenuButton}"
-                             Click="ButtonClickExit">
+                             Click="ButtonClickExit"
+                             Margin="10 10 0 0">
                     <RadioButton.Content>
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resources/Image/exit_icon.png"
@@ -198,10 +218,18 @@
             </StackPanel>
         </Border>
 
-        <Frame x:Name="MainFrame"
-               ScrollViewer.VerticalScrollBarVisibility="Visible"
-               NavigationUIVisibility="Hidden"
-               Grid.Column="1"
-               Grid.RowSpan="2"/>
+        <Border Grid.Column="1"
+                Grid.Row="1"
+                CornerRadius="4"
+                BorderThickness="2"
+                BorderBrush="#adb5bd"
+                Margin="10 10 10 0">
+            
+            <Frame x:Name="MainFrame"
+                   ScrollViewer.VerticalScrollBarVisibility="Visible"
+                   NavigationUIVisibility="Hidden"
+                   Padding="3"
+                   Navigated="MainFrame_Navigated"/>
+        </Border>
     </Grid>
 </Window>

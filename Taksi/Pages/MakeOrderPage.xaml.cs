@@ -38,7 +38,7 @@ namespace Taksi.Pages
                 return;
 
             Cars = new System.Collections.ObjectModel.ObservableCollection<Car>
-                    (App.db.Car.Local.Where(x => x.ViewCar == (ViewCarComboBox.SelectedItem as ViewCar)));
+                    (App.db.Car.Local.Where(x => x.ViewCar == (ViewCarComboBox.SelectedItem as ViewCar) && x.Employee != null));
 
             CarsComboBox.Items.Refresh();
 

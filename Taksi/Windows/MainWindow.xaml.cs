@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Windows.Media;
 using System.Windows.Threading;
 using System;
+using System.Windows.Media.Imaging;
 
 namespace Taksi.Windows
 {
@@ -14,14 +15,20 @@ namespace Taksi.Windows
     public partial class MainWindow : Window
     {
         private static DispatcherTimer timer;
-
+        public string FullNameUser { get; set; }
         public static MainWindow Instance { get; set; }
 
         public MainWindow()
         {
+            if (App.Client != null)
+                FullNameUser = App.Client.FullName;
+            else
+                FullNameUser = App.Employee.FullName;
+
             FlagClickTab = Visibility.Visible;
 
             InitializeComponent();
+
             Instance = this;
 
             ParsonCabinet.IsChecked = true;
@@ -68,7 +75,7 @@ namespace Taksi.Windows
             else if (e.Key == Key.Tab && FlagClickTab == Visibility.Collapsed)
             {
                 FlagClickTab = Visibility.Visible;
-                Colum.Width = new GridLength(200);
+                Colum.Width = new GridLength(210);
                 MenuIcon.Width = 100;
             }
         }
@@ -116,5 +123,9 @@ namespace Taksi.Windows
         }
         #endregion
 
+        private void MainFrame_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
+        {
+
+        }
     }
 }
