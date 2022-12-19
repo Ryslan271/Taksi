@@ -15,9 +15,11 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <ListBox ItemsSource="{Binding Employees}"
+                 x:Name="ListEmployees"
                  Margin="0 0 0 10"
                  d:ItemsSource="{d:SampleData ItemCount=2}"
                  VirtualizingPanel.ScrollUnit="Pixel"
+                 MouseDoubleClick="ListEmployee_MouseDoubleClick"
                  ItemContainerStyle="{StaticResource ResourceKey=ListBoxOrders}">
             <ListBox.GroupStyle>
                 <GroupStyle ContainerStyle="{StaticResource ResourceKey=OrderListGroupStyle}"/>
