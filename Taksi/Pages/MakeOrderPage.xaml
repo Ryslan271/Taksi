@@ -24,13 +24,9 @@
             <ComboBox ItemsSource="{Binding ViewCars}"
                       SelectedIndex="0"
                       Margin="0 10 0 10"
-                      x:Name="ViewCarComboBox">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <ComboBoxItem Content="{Binding Title}"/>
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
+                      x:Name="ViewCarComboBox"
+                      DisplayMemberPath="Title"/>
+
 
             <StackPanel x:Name="ClientView">
                 <TextBlock Text="ФИО Клиента"/>

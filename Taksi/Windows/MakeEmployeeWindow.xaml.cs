@@ -1,17 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Taksi.Windows
 {
@@ -64,10 +56,6 @@ namespace Taksi.Windows
 
         #region Обработчики
 
-        private void AddNewDrivingLicenseCategory_Click(object sender, RoutedEventArgs e)
-        {
-            new MakeDrivingLicenseCategory(NewEmployee, false).ShowDialog();
-        }
 
         private void DeleteNewDrivingLicenseCategory_Click(object sender, RoutedEventArgs e)
         {
@@ -140,6 +128,9 @@ namespace Taksi.Windows
             else
                 GridDrivingLicenseCategory.Visibility = Visibility.Collapsed;
         }
+
+        private void AddNewDrivingLicenseCategory_Click(object sender, RoutedEventArgs e) =>
+            new MakeDrivingLicenseCategory(NewEmployee, false).ShowDialog();
         #endregion
 
     }

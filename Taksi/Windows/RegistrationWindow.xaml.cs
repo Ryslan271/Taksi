@@ -1,17 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Taksi.Windows
 {
@@ -52,7 +44,7 @@ namespace Taksi.Windows
                LoginBox.Text.Trim() == "" ||
                PasswordBox.Password.Trim() == "";
 
-        private Client newClient() =>
+        private Client NewClient() =>
            new Client()
            {
                Email = EmailBox.Text.Trim(),
@@ -94,7 +86,7 @@ namespace Taksi.Windows
                 return;
             }
 
-            Client client = newClient();
+            Client client = NewClient();
 
             App.db.Client.Local.Add(client);
             App.Client = client;

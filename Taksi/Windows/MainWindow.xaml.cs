@@ -56,10 +56,6 @@ namespace Taksi.Windows
             else
                 MainFrame.Navigate(new Pages.PersonalClientPage());
         }
-        private void Orders_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new Pages.StoryOrdersPage());
-        }
 
         #region Проверка на нажатие кнопки TAB
 
@@ -81,6 +77,7 @@ namespace Taksi.Windows
         }
         #endregion
 
+        private void Orders_Click(object sender, RoutedEventArgs e) => MainFrame.Navigate(new Pages.StoryOrdersPage());
         private void MakeOrder_Click(object sender, RoutedEventArgs e) => MainFrame.Navigate(new Pages.MakeOrderPage());
         private void ListEmployeeButton_Click(object sender, RoutedEventArgs e) => MainFrame.Navigate(new Pages.ListEmployeePage());
         private void ListClientButton_Click(object sender, RoutedEventArgs e) => MainFrame.Navigate(new Pages.ListClientPage());

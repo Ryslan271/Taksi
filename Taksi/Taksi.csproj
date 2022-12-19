@@ -319,12 +319,12 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Image\exit_icon.png" />
     <Resource Include="Resources\Image\carEmployee.png" />
     <Resource Include="Resources\Image\listCars.png" />
     <Resource Include="Resources\Image\listClient.png" />
     <Resource Include="Resources\Image\listEmployee.png" />
     <Resource Include="Resources\Image\homeIconClient.png" />
-    <Resource Include="Resources\Image\exit_icon.png" />
     <Resource Include="Resources\Image\makeOrder_icon.png" />
     <Resource Include="Resources\Image\icon_orders.png" />
     <Resource Include="Resources\Image\logo.png" />
