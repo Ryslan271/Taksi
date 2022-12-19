@@ -31,15 +31,10 @@
             <StackPanel x:Name="ClientView">
                 <TextBlock Text="ФИО Клиента"/>
                 <ComboBox ItemsSource="{Binding Clients}"
-                      SelectedIndex="0"
-                      Margin="0 10 0 10"
-                      x:Name="ClientComboBox">
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            <ComboBoxItem Content="{Binding FullName}"/>
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
-                </ComboBox>
+                          SelectedIndex="0"
+                          Margin="0 10 0 10"
+                          x:Name="ClientComboBox"
+                          DisplayMemberPath="FullName"/>
             </StackPanel>
 
             <Button Content="Создать заказ" Click="ViewCar_Click"/>
@@ -106,7 +101,7 @@
                         <DataTemplate>
                             <TextBlock>
                                 <TextBlock.Text>
-                                    <MultiBinding StringFormat="{}Марка: {0} ;       Водитель: {1}">
+                                    <MultiBinding StringFormat="{}Марка: {0} ;    Водитель: {1}">
                                         <Binding Path="BrandCars.Title" />
                                         <Binding Path="Employee.FullName" />
                                     </MultiBinding>
@@ -118,24 +113,31 @@
             </StackPanel>
         </Grid>
 
-        <Button Grid.Row="1"
-                x:Name="ButtonCancel"
-                Visibility="Collapsed"
-                VerticalAlignment="Center"
-                HorizontalAlignment="Right"
-                Margin="0 0 150 0"
-                Content="Отменить заказ"
-                Padding="5 3"
-                Click="ButtonCancel_Click"/>
+        <StackPanel Style="{StaticResource ResourceKey=StyleStackPanel}"
+                    Grid.Row="1">
+            
+            <Button x:Name="ButtonCancel"
+                    Visibility="Collapsed"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Right"
+                    Margin="0 0 200 0"
+                    Content="Отменить заказ"
+                    Padding="5 3"
+                    Click="ButtonCancel_Click"/>
+        </StackPanel>
 
-        <Button Grid.Row="1"
-                x:Name="ButtonSave"
-                Visibility="Collapsed"
-                VerticalAlignment="Center"
-                HorizontalAlignment="Right"
-                Margin="0 0 50 0"
-                Content="Создать заказ"
-                Padding="5 3"
-                Click="ButtonSave_Click"/>
+        <StackPanel Style="{StaticResource ResourceKey=StyleStackPanel}"
+                    Grid.Row="1">
+            
+            <Button x:Name="ButtonSave"
+                    Visibility="Collapsed"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Right"
+                    Margin="0 0 50 0"
+                    Content="Создать заказ"
+                    Padding="5 3"
+                    Click="ButtonSave_Click"/>
+        </StackPanel>
+        
     </Grid>
 </Page>

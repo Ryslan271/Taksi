@@ -69,6 +69,9 @@ namespace Taksi.Pages
 
         private void Address_TextChanged(object sender, TextChangedEventArgs e)
         {
+            if (MakeOrder == null)
+                return;
+
             TimeSpan dateTime = MakeOrder.TimeForExecution;
 
             Cost += (DateTime.Now - dateTime).Hour * 100;

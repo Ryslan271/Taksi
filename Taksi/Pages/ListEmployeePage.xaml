@@ -12,7 +12,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="17*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <ListBox ItemsSource="{Binding Employees}"
                  x:Name="ListEmployees"
@@ -46,7 +46,7 @@
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="{Binding ID, StringFormat='{}Номер: {0}'}"/>
                                 <TextBlock Text="{Binding GradeUser.Title,
-                                    StringFormat='{}Оценка водителя: {0}'}"
+                                           StringFormat='{}Оценка водителя: {0}'}"
                                            Margin="15 0 0 0"/>
                             </StackPanel>
 
@@ -150,14 +150,15 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <StackPanel VerticalAlignment="Center"
-                    HorizontalAlignment="Right"
+        <StackPanel HorizontalAlignment="Right"
                     Grid.Row="1"
-                    Margin="0 0 20 0">
+                    VerticalAlignment="Center"
+                    Margin="0 0 20 0"
+                    Style="{StaticResource StyleStackPanel}">
 
             <Button Content="Добавить работника"
                     Click="AddNewEmployee_Click"
-                    Padding="5 3"/>
+                    Padding="5 2"/>
         </StackPanel>
     </Grid>
 </Page>

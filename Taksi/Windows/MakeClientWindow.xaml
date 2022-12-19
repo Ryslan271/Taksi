@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Taksi.Windows"
         mc:Ignorable="d"
-        Title="Окно создание нового клиента" Height="450" Width="800"
+        Title="Окно создание нового клиента" Height="480" Width="800"
         DataContext="{Binding RelativeSource={RelativeSource Self}}">
     <Grid>
         <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto">
@@ -21,42 +21,50 @@
                         HorizontalAlignment="Center"
                         Margin="0 20 0 20">
 
-                    <StackPanel>
+                    <StackPanel MaxWidth="200">
                         <TextBlock Text="Имя"/>
                         <TextBox x:Name="NameBox"
-                             MinWidth="200"
-                             Text="{Binding NewClient.Name}"/>
+                                 MinWidth="200"
+                                 TextWrapping="Wrap"
+                                 Text="{Binding NewClient.Name}"/>
 
                         <TextBlock Text="Фамилия"/>
                         <TextBox x:Name="SurnameBox"
-                             Text="{Binding NewClient.Surname}"/>
+                                 TextWrapping="Wrap"
+                                 Text="{Binding NewClient.Surname}"/>
 
                         <TextBlock Text="Отчество"/>
                         <TextBox x:Name="PatronymicBox"
-                             Text="{Binding NewClient.Patronymic}"/>
+                                 TextWrapping="Wrap"
+                                 Text="{Binding NewClient.Patronymic}"/>
 
                         <TextBlock Text="Телефон"/>
                         <TextBox x:Name="PhoneBox"
-                             Text="{Binding NewClient.PhoneNumber}"/>
+                                 TextWrapping="Wrap"
+                                 Text="{Binding NewClient.PhoneNumber}"/>
                     </StackPanel>
 
-                    <StackPanel Margin="130 0 0 0">
+                    <StackPanel Margin="130 0 0 0"
+                                MaxWidth="300">
                         <TextBlock Text="Адрес электронной почты"/>
                         <TextBox x:Name="EmailBox"
-                             Text="{Binding NewClient.Email}"/>
+                                 TextWrapping="Wrap"
+                                 Text="{Binding NewClient.Email}"/>
 
                         <TextBlock Text="Логин"/>
                         <TextBox x:Name="LoginBox"
-                             Text="{Binding NewClient.Login}"/>
+                                 TextWrapping="Wrap"
+                                 Text="{Binding NewClient.Login}"/>
 
                         <TextBlock Text="Пароль"/>
                         <TextBox x:Name="PasswordBox"
-                             Text="{Binding NewClient.Password}"/>
+                                 TextWrapping="Wrap"
+                                 Text="{Binding NewClient.Password}"/>
                     </StackPanel>
                 </StackPanel>
 
                 <Button Content="Изменить данные"
-                    Margin="0 0 0 0"
+                    Margin="0 0 0 20"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Padding="15 4" Click="SaveNewClient_Click"/>

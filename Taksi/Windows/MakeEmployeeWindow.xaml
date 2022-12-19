@@ -23,54 +23,60 @@
                           ItemsSource="{Binding Roles}"
                           MinWidth="200"
                           SelectedIndex="0"
-                          x:Name="ComboBoxRoleEmployee" SelectionChanged="ComboBoxRoleEmployee_SelectionChanged">
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            <ComboBoxItem Content="{Binding Title}"/>
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
-                </ComboBox>
+                          x:Name="ComboBoxRoleEmployee"
+                          DisplayMemberPath="Title"
+                          SelectionChanged="ComboBoxRoleEmployee_SelectionChanged"/>
+
 
                 <StackPanel Orientation="Horizontal"
-                        Style="{StaticResource ResourceKey=StyleStackPanel}"
-                        HorizontalAlignment="Center"
-                        Margin="0 10 0 20">
+                            Style="{StaticResource ResourceKey=StyleStackPanel}"
+                            HorizontalAlignment="Center"
+                            Margin="0 10 0 20">
 
-                    <StackPanel>
+                    <StackPanel MaxWidth="200">
                         <TextBlock Text="Имя"/>
                         <TextBox x:Name="NameBox"
-                             MinWidth="200"
-                             Text="{Binding NewEmployee.Name}"/>
+                                 MinWidth="200"
+                                 TextWrapping="Wrap"
+                                 Text="{Binding NewEmployee.Name}"/>
 
                         <TextBlock Text="Фамилия"/>
                         <TextBox x:Name="SurnameBox"
-                             Text="{Binding NewEmployee.Surname}"/>
+                                 TextWrapping="Wrap"
+                                 Text="{Binding NewEmployee.Surname}"/>
 
                         <TextBlock Text="Отчество"/>
                         <TextBox x:Name="PatronymicBox"
-                             Text="{Binding NewEmployee.Patronymic}"/>
+                                 TextWrapping="Wrap"
+                                 Text="{Binding NewEmployee.Patronymic}"/>
 
                         <TextBlock Text="Телефон"/>
                         <TextBox x:Name="PhoneBox"
-                             Text="{Binding NewEmployee.PhoneNumber}"/>
+                                 TextWrapping="Wrap"
+                                 Text="{Binding NewEmployee.PhoneNumber}"/>
                     </StackPanel>
 
-                    <StackPanel Margin="30 0 0 0">
+                    <StackPanel Margin="30 0 0 0"
+                                MaxWidth="300">
                         <TextBlock Text="Адрес электронной почты"/>
                         <TextBox x:Name="EmailBox"
-                             Text="{Binding NewEmployee.Email}"/>
+                                 TextWrapping="Wrap"
+                                 Text="{Binding NewEmployee.Email}"/>
 
                         <TextBlock Text="Логин"/>
                         <TextBox x:Name="LoginBox"
-                             Text="{Binding NewEmployee.Login}"/>
+                                 TextWrapping="Wrap"
+                                 Text="{Binding NewEmployee.Login}"/>
 
                         <TextBlock Text="Пароль"/>
                         <TextBox x:Name="PasswordBox"
-                             Text="{Binding NewEmployee.Password}"/>
+                                 TextWrapping="Wrap"
+                                 Text="{Binding NewEmployee.Password}"/>
 
                         <TextBlock Text="Возрост"/>
                         <TextBox x:Name="AgeBox"
-                             Text="{Binding NewEmployee.Age}"/>
+                                 TextWrapping="Wrap"
+                                 Text="{Binding NewEmployee.Age}"/>
                     </StackPanel>
 
                     <Grid Margin="30 0 0 0"

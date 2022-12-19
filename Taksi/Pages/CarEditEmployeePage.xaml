@@ -12,7 +12,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="30*"/>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -213,12 +213,16 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <Button Content="Добавить авто на учет водителя"
-                Grid.Row="2"
-                Grid.Column="1"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Center"
-                Padding="5 4"
-                Margin="0 5 30 0" Click="CarEditEmployee_Click"/>
+        <StackPanel Style="{StaticResource StyleStackPanel}"
+                    Grid.Row="2"
+                    Grid.Column="1">
+            
+            <Button Content="Добавить авто на учет водителя"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Padding="5 4"
+                    Margin="0 5 30 0"
+                    Click="CarEditEmployee_Click"/>
+        </StackPanel>
     </Grid>
 </Page>

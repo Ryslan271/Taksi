@@ -22,40 +22,54 @@
                         HorizontalAlignment="Center"
                         Margin="0 0 0 20">
 
-                <StackPanel>
+                <StackPanel MaxWidth="200">
                     <TextBlock Text="Имя"/>
                     <TextBox x:Name="NameBox"
+                             TextWrapping="Wrap"
                              MinWidth="200"
                              Text="{Binding ClientPersonal.Name}"/>
 
                     <TextBlock Text="Фамилия"/>
                     <TextBox x:Name="SurnameBox"
+                             TextWrapping="Wrap"
+                             MinWidth="200"
                              Text="{Binding ClientPersonal.Surname}"/>
 
                     <TextBlock Text="Отчество"/>
                     <TextBox x:Name="PatronymicBox"
+                             TextWrapping="Wrap"
+                             MinWidth="200"
                              Text="{Binding ClientPersonal.Patronymic}"/>
 
                     <TextBlock Text="Телефон"/>
                     <TextBox x:Name="PhoneBox"
+                             TextWrapping="Wrap"
+                             MinWidth="200"
                              Text="{Binding ClientPersonal.PhoneNumber}"/>
                 </StackPanel>
 
-                <StackPanel Margin="130 0 0 0">
+                <StackPanel Margin="130 0 0 0"
+                            MaxWidth="200">
                     <TextBlock Text="Адрес электронной почты"/>
                     <TextBox x:Name="EmailBox"
+                             TextWrapping="Wrap"
+                             MinWidth="200"
                              Text="{Binding ClientPersonal.Email}"/>
 
                     <TextBlock Text="Логин"/>
                     <TextBox x:Name="LoginBox"
+                             TextWrapping="Wrap"
+                             MinWidth="200"
                              Text="{Binding ClientPersonal.Login}"/>
 
                     <TextBlock Text="Пароль"/>
                     <TextBox x:Name="PasswordBox"
+                             TextWrapping="Wrap"
+                             MinWidth="200"
                              Text="{Binding ClientPersonal.Password}"/>
 
                     <TextBlock Text="{Binding ClientPersonal.GradeClient.Title, 
-                                    StringFormat='{}Ваш рейтинг: {0}'}"
+                               StringFormat='{}Ваш рейтинг: {0}'}"
                                Margin="0 20 0 0"/>
                 </StackPanel>
             </StackPanel>
