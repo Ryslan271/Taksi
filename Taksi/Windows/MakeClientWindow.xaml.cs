@@ -28,13 +28,20 @@ namespace Taksi.Windows
             if (ValidateClient() == true)
                 return;
 
-            Client user = App.db.Client.Local.FirstOrDefault(x => x.Login == LoginBox.Text.Trim() ||
+            Employee userEmployee = App.db.Employee.Local.FirstOrDefault(x => x.Login == LoginBox.Text.Trim() ||
                                                                   x.Email == EmailBox.Text.Trim() ||
                                                                   x.PhoneNumber == PhoneBox.Text.Trim());
 
-            if (user != null)
+            Client userClient = App.db.Client.Local.FirstOrDefault(x => x.Login == LoginBox.Text.Trim() ||
+                                                                 x.Email == EmailBox.Text.Trim() ||
+                                                                 x.PhoneNumber == PhoneBox.Text.Trim());
+
+            if (userEmployee != null || userClient != null)
             {
-                MessageBox.Show("Такой пользователь уже есть", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Пользователь с таким логином" +
+                                " или адресом электронной почты" +
+                                " или с номером телефона уже есть",
+                                "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 

@@ -47,18 +47,19 @@
 
                             <StackPanel Margin="10 0 0 0">
                                 <TextBlock Text="{Binding FullNameUser,
-                                       StringFormat='{}Добрый день, {0}'}"
-                                       FontFamily="Bahnschrift"
-                                       FontSize="25"
-                                       VerticalAlignment="Center"
-                                       Margin="5 0 0 0"/>
+                                           StringFormat='{}Добрый день, {0}'}"
+                                           FontFamily="Bahnschrift"
+                                           FontSize="25"
+                                           VerticalAlignment="Center"
+                                           Margin="5 0 0 0"/>
 
-                                <TextBlock Text="Личный кабинет"
-                                       FontFamily="Bahnschrift"
-                                       FontSize="10"
-                                       Foreground="#6c757d"
-                                       VerticalAlignment="Center"
-                                       Margin="5 0 0 0"/>
+                                <TextBlock Text="{Binding Role, 
+                                           StringFormat='{}Личный кабинет - {0}'}"
+                                           FontFamily="Bahnschrift"
+                                           FontSize="10"
+                                           Foreground="#6c757d"
+                                           VerticalAlignment="Center"
+                                           Margin="5 0 0 0"/>
                             </StackPanel>
                         </StackPanel>
                     </Border>
@@ -119,7 +120,8 @@
                 <RadioButton x:Name="MakeOrderButton"
                              Style="{StaticResource MenuButton}"
                              Click="ListEmployeeButton_Click"
-                             Margin="10 10 0 0">
+                             Margin="10 10 0 0"
+                             Visibility="{Binding VisibilityRadioButtonAdminSupport}">
                     <RadioButton.Content>
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resources/Image/listEmployee.png"
@@ -135,7 +137,8 @@
 
                 <RadioButton Style="{StaticResource MenuButton}"
                              Click="ListClientButton_Click"
-                             Margin="10 10 0 0">
+                             Margin="10 10 0 0"
+                             Visibility="{Binding VisibilityRadioButtonAdminSupport}">
                     <RadioButton.Content>
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resources/Image/listClient.png"
@@ -151,7 +154,8 @@
 
                 <RadioButton Style="{StaticResource MenuButton}"
                              Click="ListCars_Click"
-                             Margin="10 10 0 0">
+                             Margin="10 10 0 0"
+                             Visibility="{Binding VisibilityRadioButtonAdminSupport}">
                     <RadioButton.Content>
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resources/Image/listCars.png"
@@ -167,7 +171,8 @@
 
                 <RadioButton Style="{StaticResource MenuButton}"
                              Click="CarEditEmployee_Click"
-                             Margin="10 10 0 0">
+                             Margin="10 10 0 0"
+                             Visibility="{Binding VisibilityRadioButtonAdminSupport}">
                     <RadioButton.Content>
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resources/Image/carEmployee.png"
@@ -235,8 +240,7 @@
             <Frame x:Name="MainFrame"
                    ScrollViewer.VerticalScrollBarVisibility="Visible"
                    NavigationUIVisibility="Hidden"
-                   Padding="3"
-                   Navigated="MainFrame_Navigated"/>
+                   Padding="3"/>
         </Border>
     </Grid>
 </Window>

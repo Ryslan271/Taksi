@@ -17,7 +17,7 @@
         <ListBox ItemsSource="{Binding Cars}"
                  Padding="2"
                  d:ItemsSource="{d:SampleData ItemCount=2}"
-                 ItemContainerStyle="{StaticResource ResourceKey=ListBoxOrders}" Grid.RowSpan="2">
+                 ItemContainerStyle="{StaticResource ResourceKey=ListBoxOrders}">
             <ListBox.GroupStyle>
                 <GroupStyle ContainerStyle="{StaticResource ResourceKey=OrderListGroupStyle}"/>
             </ListBox.GroupStyle>

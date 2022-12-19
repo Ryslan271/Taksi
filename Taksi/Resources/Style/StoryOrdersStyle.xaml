@@ -29,7 +29,7 @@
                                 Value="True">
                             <Setter
                                     Property="Background"
-                                    Value="#A14d99ae"/>
+                                    Value="#adb5bd"/>
                             <Setter
                                     Property="BorderBrush"
                                     Value="#edf2f4" />
@@ -38,6 +38,7 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        
         <Setter Property="FontFamily"
                 Value="Bahnschrift"/>
     </Style>

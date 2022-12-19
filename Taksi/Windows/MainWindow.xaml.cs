@@ -1,11 +1,8 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Input;
-using System.Windows.Controls;
-using System.ComponentModel;
 using System.Windows.Media;
 using System.Windows.Threading;
-using System;
-using System.Windows.Media.Imaging;
 
 namespace Taksi.Windows
 {
@@ -16,28 +13,98 @@ namespace Taksi.Windows
     {
         private static DispatcherTimer timer;
         public string FullNameUser { get; set; }
+        public string Role { get; set; }
         public static MainWindow Instance { get; set; }
 
         public MainWindow()
         {
-            if (App.Client != null)
-                FullNameUser = App.Client.FullName;
-            else
-                FullNameUser = App.Employee.FullName;
+            UserChoiceToSystem();
 
             FlagClickTab = Visibility.Visible;
 
-            InitializeComponent();
+            VisibilityRadioButtonToAdminAndSupporter();
 
+            InitializeComponent();
+            
             Instance = this;
 
             ParsonCabinet.IsChecked = true;
 
+            OutputMainPage();
+        }
+
+        #region Методы
+
+        private void UserChoiceToSystem()
+        {
+            if (App.Client != null)
+            {
+                FullNameUser = App.Client.FullName;
+                Role = "Пользователь";
+            }
+            else
+            {
+                FullNameUser = App.Employee.FullName;
+                Role = App.Employee.Role.Title;
+            }
+        }
+
+        private void OutputMainPage()
+        {
             if (App.Client == null)
                 MainFrame.Navigate(new Pages.PersonalEmployeePage());
             else
                 MainFrame.Navigate(new Pages.PersonalClientPage());
         }
+
+        private void VisibilityRadioButtonToAdminAndSupporter()
+        {
+            if (App.Employee != null &&
+                (App.Employee.RoleID == 0 || App.Employee.RoleID == 2))
+            {
+                VisibilityRadioButtonAdminSupport = Visibility.Visible;
+                return;
+            }
+
+            VisibilityRadioButtonAdminSupport = Visibility.Collapsed;
+        }
+
+        #region Вывод информация о том сохранен/не сохранен
+
+        public static void GoMessager(bool flag)
+        {
+            if (flag)
+            {
+                Instance.InformationMessage.Text = "Запись сохранена";
+                Instance.InformationMessage.Foreground = Brushes.White;
+
+                Instance.StackPanelMessageInfo.Background = Brushes.Green;
+                Instance.StackPanelMessageInfo.BorderBrush = Brushes.Green;
+            }
+            else
+            {
+                Instance.InformationMessage.Text = "Запись отменена";
+                Instance.InformationMessage.Foreground = Brushes.White;
+
+                Instance.StackPanelMessageInfo.Background = Brushes.Red;
+                Instance.StackPanelMessageInfo.BorderBrush = Brushes.Red;
+            }
+
+            timer = new DispatcherTimer();
+            timer.Tick += new EventHandler(timer_Tick);
+            timer.Interval = new TimeSpan(0, 0, 15);
+            timer.Start();
+        }
+
+        private static void timer_Tick(object sender, EventArgs e)
+        {
+            Instance.InformationMessage.Text = "";
+            Instance.StackPanelMessageInfo.Background = Brushes.Transparent;
+            Instance.StackPanelMessageInfo.BorderBrush = Brushes.Transparent;
+        }
+        #endregion
+
+        #endregion
 
         #region Обработчики
 
@@ -85,44 +152,5 @@ namespace Taksi.Windows
         private void CarEditEmployee_Click(object sender, RoutedEventArgs e) => MainFrame.Navigate(new Pages.CarEditEmployeePage());
         #endregion
 
-        #region Вывод информация о том сохранен/не сохранен
-
-        public static void GoMessager(bool flag)
-        {
-            if (flag)
-            {
-                Instance.InformationMessage.Text = "Запись сохранена";
-                Instance.InformationMessage.Foreground = Brushes.White;
-
-                Instance.StackPanelMessageInfo.Background = Brushes.Green;
-                Instance.StackPanelMessageInfo.BorderBrush = Brushes.Green;
-            }
-            else
-            {
-                Instance.InformationMessage.Text = "Запись отменена";
-                Instance.InformationMessage.Foreground = Brushes.White;
-
-                Instance.StackPanelMessageInfo.Background = Brushes.Red;
-                Instance.StackPanelMessageInfo.BorderBrush = Brushes.Red;
-            }
-
-            timer = new DispatcherTimer();
-            timer.Tick += new EventHandler(timer_Tick);
-            timer.Interval = new TimeSpan(0, 0, 15);
-            timer.Start();
-        }
-
-        private static void timer_Tick(object sender, EventArgs e)
-        {
-            Instance.InformationMessage.Text = "";
-            Instance.StackPanelMessageInfo.Background = Brushes.Transparent;
-            Instance.StackPanelMessageInfo.BorderBrush = Brushes.Transparent;
-        }
-        #endregion
-
-        private void MainFrame_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
-        {
-
-        }
     }
 }

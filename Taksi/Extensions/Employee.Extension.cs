@@ -13,10 +13,20 @@ namespace Taksi
         {
             get
             {
-                if (RoleID == 0)
+                if (RoleID == 0 || RoleID == 2)
                     return Visibility.Collapsed;
                 return Visibility.Visible;
             }
+        }
+
+        public Visibility OrderStatusVisibilityDriver
+        {
+            get => this.RoleID == 1 ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+        public Visibility OrderStatusVisibilitySupport
+        {
+            get => this.RoleID == 2 ? Visibility.Visible : Visibility.Collapsed;
         }
 
         public string InProcessing

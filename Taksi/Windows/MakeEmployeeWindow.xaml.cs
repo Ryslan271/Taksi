@@ -82,11 +82,15 @@ namespace Taksi.Windows
             if (ComboBoxRoleEmployee.SelectedItem == null)
                 return;
 
-            Employee user = App.db.Employee.Local.FirstOrDefault(x => x.Login == LoginBox.Text.Trim() ||
+            Employee userEmployee = App.db.Employee.Local.FirstOrDefault(x => x.Login == LoginBox.Text.Trim() ||
                                                                   x.Email == EmailBox.Text.Trim() ||
                                                                   x.PhoneNumber == PhoneBox.Text.Trim());
 
-            if (user != null)
+            Client userClient = App.db.Client.Local.FirstOrDefault(x => x.Login == LoginBox.Text.Trim() ||
+                                                                 x.Email == EmailBox.Text.Trim() ||
+                                                                 x.PhoneNumber == PhoneBox.Text.Trim());
+
+            if (userEmployee != null || userClient != null)
             {
                 MessageBox.Show("Пользователь с таким логином" +
                                 " или адресом электронной почты" +
