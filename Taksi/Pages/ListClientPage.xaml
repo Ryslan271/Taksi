@@ -14,10 +14,12 @@
             <RowDefinition Height="17*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <ListBox ItemsSource="{Binding Clients}"
+        <ListBox x:Name="ListClients"
+                 ItemsSource="{Binding Clients}"
                  Margin="0 0 0 10"
                  d:ItemsSource="{d:SampleData ItemCount=2}"
                  VirtualizingPanel.ScrollUnit="Pixel"
+                 MouseDoubleClick="ListBox_MouseDoubleClick"
                  ItemContainerStyle="{StaticResource ResourceKey=ListBoxOrders}">
             <ListBox.ItemTemplate>
                 <DataTemplate>

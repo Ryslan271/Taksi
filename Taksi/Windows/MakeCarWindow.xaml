@@ -81,7 +81,6 @@
                    HorizontalAlignment="Center"
                    Text="Максимальная грузоподъемность"/>
         <ComboBox ItemsSource="{Binding WeightLimits}"
-                  SelectedIndex="0"
                   x:Name="ComboBoxWeightLimits"
                   Grid.Row="8"
                   HorizontalAlignment="Center"

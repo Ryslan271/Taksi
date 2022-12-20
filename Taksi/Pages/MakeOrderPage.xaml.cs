@@ -85,14 +85,14 @@ namespace Taksi.Pages
                 {
                     CreationDate = NowDateTime,
                     Client = App.Client,
-                    OrderStatusID = 1
+                    OrderStatusID = 0
                 };
 
             else
                 MakeOrder = new Order
                 {
                     CreationDate = NowDateTime,
-                    OrderStatusID = 1,
+                    OrderStatusID = 0,
                     Client = ClientComboBox.SelectedItem as Client
                 };
         }

@@ -64,11 +64,11 @@ namespace Taksi.Pages
                 return;
             }
 
-            Employee user = App.db.Employee.Local.FirstOrDefault(x => x.Login == LoginBox.Text.Trim() ||
+            int user = App.db.Employee.Local.Count(x => x.Login == LoginBox.Text.Trim() ||
                                                                   x.Email == EmailBox.Text.Trim() ||
                                                                   x.PhoneNumber == PhoneBox.Text.Trim());
 
-            if (user != null && LoginBox.Text.Trim() != App.Employee.Login)
+            if (user > 1)
             {
                 MessageBox.Show("Пользователь с таким логином" +
                                 " или адресом электронной почты" +

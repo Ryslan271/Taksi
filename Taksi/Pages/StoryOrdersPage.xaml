@@ -145,12 +145,12 @@
             <Button Content="Принят"
                     Click="ChangeStatusAccepted_Click"
                     Padding="10 3"
-                    Visibility="{Binding Employee.OrderStatusVisibilityDriver}"
+                    Visibility="{Binding VisibilityButtonDriver}"
                     Margin="0 0 20 0"/>
 
             <Button Content="Сделан"
                     Click="ChangeStatusDone_Click"
-                    Visibility="{Binding Employee.OrderStatusVisibilitySupport}"
+                    Visibility="{Binding VisibilityButtonSupport}"
                     Padding="10 3"/>
         </StackPanel>
     </Grid>

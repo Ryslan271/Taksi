@@ -1,18 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Taksi.Windows
 {
@@ -21,14 +9,14 @@ namespace Taksi.Windows
     /// </summary>
     public partial class MakeCarWindow : Window
     {
-        public MakeCarWindow()
+        public MakeCarWindow(Car car = null)
         {
             App.db.ViewCar.Load();
             App.db.BrandCars.Load();
             App.db.ColorCar.Load();
             App.db.WeightLimit.Load();
 
-            NewCar = new Car();
+            NewCar = car ?? new Car();
 
             ViewCarses = App.db.ViewCar.Local;
             BrandCarses = App.db.BrandCars.Local;

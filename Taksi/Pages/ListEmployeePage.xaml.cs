@@ -26,7 +26,7 @@ namespace Taksi.Pages
 
         private void ListEmployee_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if ((ListEmployees.SelectedItem as Employee).RoleID != 1)
+            if (ListEmployees.SelectedItem == null)
                 return;
 
             new Windows.ChangingMachineAccountingWindow(ListEmployees.SelectedItem as Employee).ShowDialog();

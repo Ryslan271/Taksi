@@ -14,8 +14,10 @@
             <RowDefinition Height="17*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <ListBox ItemsSource="{Binding Cars}"
+        <ListBox x:Name="ListCars"
+                 ItemsSource="{Binding Cars}"
                  Padding="2"
+                 MouseDoubleClick="ListBox_MouseDoubleClick"
                  d:ItemsSource="{d:SampleData ItemCount=2}"
                  ItemContainerStyle="{StaticResource ResourceKey=ListBoxOrders}">
             <ListBox.GroupStyle>

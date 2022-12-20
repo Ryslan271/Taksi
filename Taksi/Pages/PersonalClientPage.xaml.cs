@@ -1,18 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Taksi.Pages
 {
@@ -69,11 +60,11 @@ namespace Taksi.Pages
                 return;
             }
 
-            Client user = App.db.Client.Local.FirstOrDefault(x => x.Login == LoginBox.Text.Trim() ||
+            int user = App.db.Client.Local.Count(x => x.Login == LoginBox.Text.Trim() ||
                                                                   x.Email == EmailBox.Text.Trim() ||
                                                                   x.PhoneNumber == PhoneBox.Text.Trim());
 
-            if (user != null && LoginBox.Text.Trim() != App.Client.Login)
+            if (user > 1)
             {
                 MessageBox.Show("Пользователь с таким логином" +
                                 " или адресом электронной почты" +

@@ -11,9 +11,9 @@ namespace Taksi.Windows
     /// </summary>
     public partial class MakeClientWindow : Window
     {
-        public MakeClientWindow()
+        public MakeClientWindow(Client client = null)
         {
-            NewClient = new Client()
+            NewClient = client ?? new Client()
             {
                 GradeClientID = 0
             };
@@ -28,15 +28,15 @@ namespace Taksi.Windows
             if (ValidateClient() == true)
                 return;
 
-            Employee userEmployee = App.db.Employee.Local.FirstOrDefault(x => x.Login == LoginBox.Text.Trim() ||
+            int userEmployee = App.db.Employee.Local.Count(x => x.Login == LoginBox.Text.Trim() ||
                                                                   x.Email == EmailBox.Text.Trim() ||
                                                                   x.PhoneNumber == PhoneBox.Text.Trim());
 
-            Client userClient = App.db.Client.Local.FirstOrDefault(x => x.Login == LoginBox.Text.Trim() ||
+            int userClient = App.db.Client.Local.Count(x => x.Login == LoginBox.Text.Trim() ||
                                                                  x.Email == EmailBox.Text.Trim() ||
                                                                  x.PhoneNumber == PhoneBox.Text.Trim());
 
-            if (userEmployee != null || userClient != null)
+            if (userEmployee > 1 || userClient > 1)
             {
                 MessageBox.Show("Пользователь с таким логином" +
                                 " или адресом электронной почты" +

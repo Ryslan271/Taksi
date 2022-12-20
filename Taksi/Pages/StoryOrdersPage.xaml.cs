@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows;
 
 namespace Taksi.Pages
 {
@@ -12,17 +13,50 @@ namespace Taksi.Pages
         public Employee Employee { get; set; } = App.Employee;
         public StoryOrdersPage()
         {
+            FillingListOrders();
+
+            Orders.GroupDescriptions.Add(new PropertyGroupDescription("InProcessing"));
+
+            ChageVisibilityButton();
+
+            InitializeComponent();
+        }
+
+        #region Методы
+
+        private void FillingListOrders()
+        {
             if (App.Client != null)
                 Orders = new CollectionViewSource { Source = App.db.Order.Local.Where(x => x.Client == App.Client) }.View;
             else if (App.Employee.RoleID == 0 || App.Employee.RoleID == 2)
                 Orders = new CollectionViewSource { Source = App.db.Order.Local }.View;
             else
                 Orders = new CollectionViewSource { Source = App.db.Order.Local.Where(x => App.Employee.Car.Contains(x.Car)) }.View;
-
-            Orders.GroupDescriptions.Add(new PropertyGroupDescription("InProcessing"));
-
-            InitializeComponent();
         }
+
+        private void ChageVisibilityButton()
+        {
+            if (App.Client != null)
+            {
+                VisibilityButtonDriver = Visibility.Collapsed;
+                VisibilityButtonSupport = Visibility.Collapsed;
+                return;
+            }
+
+            if (App.Employee.RoleID == 1)
+            {
+                VisibilityButtonDriver = Visibility.Visible;
+                VisibilityButtonSupport = Visibility.Collapsed;
+            }
+            else if (App.Employee.RoleID == 2)
+            {
+                VisibilityButtonSupport = Visibility.Visible;
+                VisibilityButtonDriver = Visibility.Collapsed;
+            }
+        }
+        #endregion
+
+        #region Обработчики
 
         private void ChangeStatusAccepted_Click(object sender, System.Windows.RoutedEventArgs e)
         {
@@ -51,5 +85,6 @@ namespace Taksi.Pages
             Orders.Refresh();
             ListOrder.Items.Refresh();
         }
+        #endregion
     }
 }

@@ -30,6 +30,15 @@ namespace Taksi.Pages
             InitializeComponent();
         }
 
-        private void AddClient_Click(object sender, RoutedEventArgs e) => new Windows.MakeClientWindow().ShowDialog();
+        private void AddClient_Click(object sender, RoutedEventArgs e) =>
+            new Windows.MakeClientWindow().ShowDialog();
+
+        private void ListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (ListClients.SelectedItem == null)
+                return;
+
+            new Windows.MakeClientWindow(ListClients.SelectedItem as Client).ShowDialog();
+        }
     }
 }
