@@ -83,6 +83,7 @@
         <ComboBox ItemsSource="{Binding WeightLimits}"
                   x:Name="ComboBoxWeightLimits"
                   Grid.Row="8"
+                  SelectedIndex="{Binding NewCar.WeightLimitID}"
                   HorizontalAlignment="Center"
                   VerticalAlignment="Center"
                   MinWidth="200"

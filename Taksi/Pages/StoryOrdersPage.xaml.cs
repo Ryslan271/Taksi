@@ -36,7 +36,7 @@ namespace Taksi.Pages
 
         private void ChageVisibilityButton()
         {
-            if (App.Client != null)
+            if (App.Client != null || App.Employee.RoleID == 0)
             {
                 VisibilityButtonDriver = Visibility.Collapsed;
                 VisibilityButtonSupport = Visibility.Collapsed;
@@ -60,8 +60,10 @@ namespace Taksi.Pages
 
         private void ChangeStatusAccepted_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            if (ListOrder.SelectedItem == null &&
-               (ListOrder.SelectedItem as Order).OrderStatusID == 1)
+            if (ListOrder.SelectedItem == null)
+                return;
+
+            if ((ListOrder.SelectedItem as Order).OrderStatusID == 1)
                 return;
 
             Order order = ListOrder.SelectedItem as Order;
@@ -74,8 +76,10 @@ namespace Taksi.Pages
 
         private void ChangeStatusDone_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            if (ListOrder.SelectedItem == null &&
-               (ListOrder.SelectedItem as Order).OrderStatusID == 2)
+            if (ListOrder.SelectedItem == null)
+                return;
+
+            if ((ListOrder.SelectedItem as Order).OrderStatusID == 2)
                 return;
 
             Order order = ListOrder.SelectedItem as Order;
