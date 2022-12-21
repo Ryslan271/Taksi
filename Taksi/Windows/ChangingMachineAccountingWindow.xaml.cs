@@ -95,6 +95,15 @@ namespace Taksi.Windows
 
             return true;
         }
+
+        private void ValidateRoleToDeleteCarsEmployee()
+        {
+            if (EmployeeEdit.RoleID == 1 ||
+                EmployeeEdit.Car.Count == 0)
+                return;
+
+            EmployeeEdit.Car.Clear();
+        }
         #endregion
 
         #region Обработчики
@@ -126,6 +135,8 @@ namespace Taksi.Windows
             if (CheckEmployeeDate() == false)
                 return;
 
+            ValidateRoleToDeleteCarsEmployee();
+
             App.db.SaveChanges();
             MainWindow.GoMessager(true);
             ListEmployeePage.Instance.Employees.Refresh();
@@ -155,6 +166,8 @@ namespace Taksi.Windows
                 GridDrivingLicenseCategory.Visibility = Visibility.Visible;
             else
                 GridDrivingLicenseCategory.Visibility = Visibility.Collapsed;
+
+            ChageVisibilityCarsDriverDelete();
         }
 
         private void AddNewDrivingLicenseCategory_Click(object sender, RoutedEventArgs e) =>
