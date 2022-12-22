@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Taksi.Windows"
         mc:Ignorable="d"
-        Title="RegistrationWindow"
+        Title="Регистрация"
         Height="780"
         Width="700"
         Icon="/Resources/Image/logoMin.png">

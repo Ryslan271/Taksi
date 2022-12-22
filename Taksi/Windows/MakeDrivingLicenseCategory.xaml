@@ -8,6 +8,7 @@
         Title="Категории"
         Height="450"
         Width="400"
+        Icon="/Resources/Image/logoMin.png"
         DataContext="{Binding RelativeSource={RelativeSource Self}}">
     
     <Grid>

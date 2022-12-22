@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Taksi.Windows"
         mc:Ignorable="d"
+        Icon="/Resources/Image/logoMin.png"
         Title="Создание сотрудника" Height="500" Width="800"
         DataContext="{Binding RelativeSource={RelativeSource Self}}">
     <Grid>

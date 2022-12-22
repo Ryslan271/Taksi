@@ -7,10 +7,11 @@
         mc:Ignorable="d" 
         Height="550"
         Width="800"
+        Icon="/Resources/Image/logoMin.png"
         Title="Учет автомобилей"
         DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
-    <Grid>
+    <Grid Margin="10">
         <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto">
             <StackPanel Style="{StaticResource ResourceKey=StyleStackPanel}"
                     VerticalAlignment="Stretch"

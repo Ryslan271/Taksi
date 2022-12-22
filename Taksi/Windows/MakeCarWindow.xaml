@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Taksi.Windows"
         mc:Ignorable="d"
+        Icon="/Resources/Image/logoMin.png"
         Title="Добавление новой машины" Height="600" Width="400"
         DataContext="{Binding RelativeSource={RelativeSource Self}}">
     
